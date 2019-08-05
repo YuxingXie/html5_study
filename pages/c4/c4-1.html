@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>定义和应用样式</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">定义和应用样式</div>
+<div class="x">1. 定义和应用样式</div>
+<p>css样式由一条或多条以分号隔开的样式声明组成。每条声明包含着一个CSS属性和该属性的值，二者以冒号隔开。如:</p>
+<code>background-color:grey;color:white</code>
+
+<p>CSS属性(property)与元素属性(attribute)是不一样的东西。</p>
+<p>CSS属性花样繁多，每种属性都控制着应用元素的某方面的外观。</p>
+<p>我们可以使用元素内嵌样式，即在元素的style属性(attribute)上直接定义CSS属性(property)和值。也可以使用外置样式。例：</p>
+<xmp>
+    <a href="http://apress.com" style="background-color: grey;color: white;">Visit the apress website</a>
+</xmp>
+<p>效果：</p>
+<div style="margin-left: 30px">
+    <a href="http://apress.com" style="background-color: grey;color: white;">Visit the apress website</a>
+</div>
+<p>我们也可以使用文档内嵌样式，即定义一个style元数据元素，通过CSS选择器指示浏览器应用样式。例：</p>
+<div style="margin-left: 30px">
+    <style>
+        a {
+            background-color: grey;
+            color: white;
+        }
+    </style>
+</div>
+<p>style元素中的a就是一个CSS选择器,表示所有的a元素都将应用花括号内的样式。</p>
+<p>我们还可以使用外部样式。方法是使用一个link元数据元素引入一个扩展名为.css的独立样式表文件。例：</p>
+<xmp>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</xmp>
+<div class="important">
+    如果不同的样式表中使用了相同的选择器，那么这些样式表的导入顺序很重要。
+</div>
+
+<p>使用@import语句，一个样式表可以从另一个样式表中导入样式，如：</p>
+<xmp>
+    文件combined.css
+    @import "style.css";
+    span {
+        border: medium black dashed;
+        padding: 10px;
+    }
+</xmp>
+<p>使用@charset语句用于声明样式表使用的字符编码:</p>
+<code>
+    @charset "UTF-8";
+</code>
+</body>
+</html>
