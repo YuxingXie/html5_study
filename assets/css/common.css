@@ -1,0 +1,42 @@
+.chapter {
+    font-weight: bolder;
+    font-size: larger;
+    padding: 1px;border-bottom:1px slategray solid;
+}
+.section {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 15px;
+    font-weight: lighter;
+    font-size: small;
+}
+.menu {
+    vertical-align: top;
+    display: inline-block;
+    width: 20%;
+    height: 1000px;
+    background-color: #eee;
+}
+.content {
+    display: inline-block;
+    width: 75%;
+    height: 1000px;
+}
+.x {
+    font-weight: bold;
+    font-size: larger;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top:1px slategray solid;
+}
+.x-x {
+    padding: 10px;
+    font-weight: bolder;
+    color: #313131;
+}
+p{
+    text-indent: 10px;
+    padding-left: 10px;
+    color: #853706;
+    font-size: smaller;
+}
