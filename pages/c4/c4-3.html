@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>样式的继承</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">样式的继承</div>
+
+<p>如果浏览器在直接相关的样式中找不到某个属性值，就会求助于继承机制，使用父元素的这个样式属性值。</p>
+
+<p>但是，并非所有的CSS属性可以被继承。有条经验可以参考：</p>
+<p>1.与元素外观相关的样式(文字颜色、字体等)会被继承；</p>
+<p>2.与元素外在页面中的布局相关的样式不会被继承。</p>
+<p>在样式中使用inherit这个特别设立的值可以强行实施继承，明确指示浏览器在该属性上使用父元素样式中的值。</p>
+</body>
+</html>

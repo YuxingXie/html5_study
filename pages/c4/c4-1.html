@@ -52,5 +52,38 @@
 <code>
     @charset "UTF-8";
 </code>
+
+<div class="x">2. CSS中的颜色</div>
+<p>颜色的值通过名称、十六进制值、十进制值和函数表示。</p>
+<p>函数表示的颜色还可以定义透明度的α值。</p>
+
+<div class="x">3. CSS中的长度</div>
+<p>width、height、font-size这些CSS属性都需要长度，它的值由一个数字和一个长度单位组成，比如10px,1em等。</p>
+<div class="x-x">3.1. 绝对长度单位</div>
+<ul>
+    <li>in:英寸</li>
+    <li>cm:厘米</li>
+    <li>mm:毫米</li>
+    <li>pt:磅(1pt≈1/72in)</li>
+    <li>pc:pica(1pica≈12pt)</li>
+</ul>
+
+<div class="x-x">3.2. 相对长度单位</div>
+
+<p>相对长度的规定和实现都比绝对长度更复杂，需要以严密、精确的语言明确定义。并非所有相对长度单位都受所有浏览器广泛一致的支持。</p>
+
+<p>下面是一些主流浏览器支持的一些CSS长度单位：</p>
+<ul>
+    <li>em ：与元素字号挂钩</li>
+    <li>ex ：与元素字体的"x高度"挂钩</li>
+    <li>rem ：与根元素的字号挂钩</li>
+    <li>px ：CSS像素(假定显示设备的分辨率为96dpi)</li>
+    <li>% ：另一属性的值的百分比</li>
+</ul>
+
+<p>粗浅的理解下：比如2em就表示"两个字号(font-size)那么长",比如一个p，它的font-size为"15px"，如果定义height为2em，就表示它的高为30px。在font-size不同的容器中，我们都定义它的height为2em，实际大小则要看这个容器的font-size是多少。</p>
+
+<p>rem则是相对根元素(一般是html元素)的font-size而言。</p>
+
 </body>
 </html>
