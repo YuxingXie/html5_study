@@ -1,17 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <title>HTML5全局属性</title>
     <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
-<div class="x">
-    1.概念
+<div class="title">HTML5全局属性</div>
+<div class="x">1. 概念</div>
+<div class="x-x">1.1. 局部属性</div>
+<p>元素特有的属性。</p>
+<div class="x-x">1.2. 全局属性</div>
+<p>所有元素共有的属性。</p>
+<div class="x">2. accesskey属性</div>
+<p>用于设置元素的快捷键。input元素是获得焦点，按钮是点击。</p>
+<p>使用快捷键试试下面的输入框。注意快捷键需要组合功能键使用，而且与浏览器和操作系统相关。</p>
+<div style="padding-left: 20px;padding-bottom: 10px">
+    <input type="text" accesskey="n" placeholder="快捷键为n，mac系统下chrome浏览器使用Control + Alt + n" style="width: 50%"/>
 </div>
-<div class="x-x">1.1.局部属性</div>
-<p>元素特有的属性</p>
-<div class="x-x">1.2.全局属性</div>
-<p>所有元素共有</p>
+<div style="padding-left: 20px">
+    <input type="text" accesskey="p" placeholder="快捷键为p，mac系统下chrome浏览器使用Control + Alt + p" style="width: 50%"/>
+</div>
+<p>代码如下:</p>
+<xmp>
+    <div>
+        <input type="text" accesskey="n" placeholder="快捷键为n，mac系统下chrome浏览器使用Control + Alt + n"/>
+    </div>
+    <div>
+        <input type="text" accesskey="p" placeholder="快捷键为p，mac系统下chrome浏览器使用Control + Alt + p"/>
+    </div>
+</xmp>
+<div class="x">3. class属性</div>
+<p>将元素分类或为其应用CSS样式。</p>
+<p>元素可以使用多个class属性值，用空格分开。</p>
+
+<div class="x">4. contenteditable属性</div>
+<p>它是一个HTM5中新增加的属性，用途是让用户能修改元素的内容。其值为true或false。</p>
+<p>下面是2个带contenteditable属性的div。</p>
+<div contenteditable="true" style="margin-left: 20px">
+    我是一个contenteditable="true"的div。
+</div>
+<div contenteditable="false" style="margin-left: 20px">
+    我是一个contenteditable="false"的div。
+</div>
+
+<div class="x">5. contextmenu属性</div>
+<p>这个属性用来为元素设定快捷菜单。这种菜单会在收到触发的时候弹出来。目前支持 contextmenu 属性的浏览器并不多，Firefox目前支持。</p>
+<p>下面有一个带contextmenu属性的div，如果你看不到弹出菜单，请换个浏览器试试。</p>
+<div contextmenu="mymenu1">
+    请鼠标右键点击我，看看有没有弹出菜单
+    <menu type="context" id="mymenu1">
+        <menuitem label="Refresh"></menuitem>
+        <menuitem label="Twitter"></menuitem>
+    </menu>
+</div>
+<p>代码如下:</p>
+<xmp>
+    <div contextmenu="mymenu">
+        <menu type="context" id="mymenu">
+            <menuitem label="Refresh"></menuitem>
+            <menuitem label="Twitter"></menuitem>
+        </menu>
+    </div>
+</xmp>
+<div class="x">6. dir属性</div>
+<p>dir属性用来规定元素中文字的方向。两个值：ltr和rtl。下面两个div元素的dir属性分别为ltr何rtl。</p>
+<div dir="ltr">我的dir属性为ltr。</div>
+<div dir="rtl">我的dir属性为rtl。</div>
+<div class="x">7. draggable属性</div>
+<p>支持拖放操作之一。</p>
+<div class="x">8. dropzone属性</div>
+<p>支持拖放操作之一。</p>
+<div class="x">9. hidden属性</div>
+<p>隐藏元素。</p>
+<div class="x">10. id属性</div>
+<p>给元素分配一个唯一的表示。</p>
+<p>当给a元素的href属性指定一个#加上一个id，如href="#my"，文档将导航至id="my"的位置。</p>
+<div class="x">11. lang属性</div>
+<p>说明元素内容使用的语言。值必须是有效的IOS语言代码。语言代码见<a href="http://tools.ietf.org/html/bcp47" target="_blank">http://tools.ietf.org/html/bcp47</a></p>
+<div class="x">12. spellcheck属性</div>
+<p>是否对元素的内容进行拼写检查。只有在用户可编辑的元素上时才有意义。</p>
+<div class="x">13. style属性</div>
+<p>直接在元素上使用CSS样式。</p>
+<div class="x">14. tabindex属性</div>
+<p>改变默认元素焦点的转移顺序。值是整数。顺序是从1开始，为负数的不会被选中。</p>
+<div class="x">15. title属性</div>
+<p>提供元素额外信息，浏览器通常用这些东西显示工具提示。</p>
 </body>
 </html>

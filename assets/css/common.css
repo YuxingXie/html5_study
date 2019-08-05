@@ -26,17 +26,27 @@
     font-weight: bold;
     font-size: larger;
     padding-top: 10px;
+    padding-left: 10px;
     padding-bottom: 10px;
+    margin-top: 10px;
     border-top:1px slategray solid;
 }
 .x-x {
-    padding: 10px;
+    padding: 15px;
     font-weight: bolder;
     color: #313131;
 }
 p{
     text-indent: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
     color: #853706;
     font-size: smaller;
+}
+.title{
+    font-size: xx-large;
+    text-align: center;
+    color: #0a169c;
+}
+xmp{
+    color: #7a7a7a;
 }
