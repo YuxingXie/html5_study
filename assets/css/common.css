@@ -45,12 +45,18 @@
     font-weight: bolder;
     color: #313131;
 }
+i{
+    color: #ff135e !important;
+    padding-left: 0.125rem !important;
+    padding-right: 0.125rem !important;
+}
 p{
     text-indent: 10px;
     padding-left: 20px;
     color: #853706;
     font-size: smaller;
 }
+
 li{
     color: #853706;
     font-size: smaller;

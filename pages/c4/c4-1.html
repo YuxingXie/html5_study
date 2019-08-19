@@ -55,7 +55,16 @@
 
 <div class="x">2. CSS中的颜色</div>
 <p>颜色的值通过名称、十六进制值、十进制值和函数表示。</p>
-<p>函数表示的颜色还可以定义透明度的α值。</p>
+<p>rgb（r,g,b）、rgba(r,g,b,a)、hsl(h,s,l)、hsla(h,s,l,a)函数可表示颜色。</p>
+<p>hsl分别表示色相(hue)，饱和度(saturation)，明度(lightness)。</p>
+<p>a值表示透明度。</p>
+<div class="x-x">
+    <div style="background-color: rgb(255,53,77)">background-color:rgb(255,53,77)</div>
+    <div style="background-color: rgba(255,53,77,1)">background-color:rgba(255,53,77,1)</div>
+    <div style="background-color: rgba(255,53,77,0.5)">background-color:rgba(255,53,77,0.5)</div>
+    <div style="background-color: rgba(255,53,77,0.25)">background-color:rgba(255,53,77,0.25)</div>
+    <div style="background-color: rgba(255,53,77,0.05)">background-color:rgba(255,53,77,0.05)</div>
+</div>
 
 <div class="x">3. CSS中的长度</div>
 <p>width、height、font-size这些CSS属性都需要长度，它的值由一个数字和一个长度单位组成，比如10px,1em等。</p>
