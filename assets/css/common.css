@@ -83,3 +83,6 @@ xmp,code{
 .text-red{
     color:red !important;
 }
+dfn{
+    font-family: "Andale Mono", monospace;
+    color: #f66306;}

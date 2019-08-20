@@ -2,41 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HTML5元素背景知识</title>
+    <title>元素说明体例</title>
     <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
-<div class="title">HTML5元素背景知识</div>
+<div class="title">元素说明体例</div>
 <p>
-    我们有时候所称的元素(element)也被称为标签(tag)，应该称作什么可能要根据上下文理解。
+    从本小节开始，我的源代码也会按照贴近语义的原则使用元素。不过一开始就犯难了，我想把小节标题的div换成一个贴近语义的元素，但我还不知道用什么来代替它。
 </p>
-
-<div>
-    <div class="x">1.空元素</div>
-    <xmp>
-        例:<code></code>
-    </xmp>
-</div>
-
-<div>
-    <div class="x">2.自闭合标签</div>
-<xmp>例:<code/></xmp>
-</div>
-
-<div>
-    <div class="x">3.虚元素</div>
-    <xmp>例:<hr/> ,<hr></xmp>
-</div>
-
-<div class="x">4.元素属性</div>
-attribute
-
-<div class="x">5.布尔值元素属性</div>
-<p>
-如input元素的disabled属性，有点古怪，不需要属性值，但指定值的时候却是disabled='disabled'而不是true或false。</p>
-<div class="x">6.自定义元素属性</div>
-<p>必须以data-开头</p>
-<div class="x">7.xhtml</div>
-<p>记住：它很严格，必须符合xml规范。</p>
+<p>作者在将要详细介绍一个元素时，会使用如下的摘要表来说明这个元素：</p>
+<table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small" width="90%">
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
+        <td style="border-bottom: #bebebe solid 1px">ol</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">元素类型</td>
+        <td style="border-bottom: #bebebe solid 1px"><a href="../c3/c3-3.html">流元素</a></td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
+        <td style="border-bottom: #bebebe solid 1px">任何可以包含流元素的元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">局部属性</td>
+        <td style="border-bottom: #bebebe solid 1px">start、reversed、type</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">内容</td>
+        <td style="border-bottom: #bebebe solid 1px">0个或多个li元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">标签用法</td>
+        <td style="border-bottom: #bebebe solid 1px">开始和结束标签</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
+        <td style="border-bottom: #bebebe solid 1px">否</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
+        <td style="border-bottom: #bebebe solid 1px">reversed属性是HTML5中新增的。在HTML4中已不赞成使用的start和type属性在HTML5中又得以恢复，不过其含义变成了语义(而不是呈现)方面的。compact属性不再使用。</td>
+    </tr>
+    <tr>
+        <td>习惯样式</td>
+        <td>ol{display:block;list-style-type:decimal;margin-before:1em;margin-after:1em;margin-start:0;margin-end:1em;padding-left:40px;}</td>
+    </tr>
+</table>
+<p>习惯样式还不知道是什么意思。</p>
 </body>
 </html>
