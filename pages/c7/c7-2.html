@@ -95,42 +95,47 @@
         <td>无</td>
     </tr>
 </table>
-<p>使用：</p>
+<div class="x-x-x">2.1 使用href属性</div>
 <xmp>
     <!DOCTYPE html>
     <html>
-       ......
+       <head>
+           <base href="http://abc.com/asset">
+       </head>
+        <a href="http://abc.com/asset/img/1.png">图片1</a>
+        <a href="img/1.png">图片1</a>
     </html>
 </xmp>
+<div class="x-x-x">2.2 使用target属性</div>
+<p>target属性的作用是告诉浏览器如何打开URL。后面章节会介绍这个属性。</p>
 
+<div class="x-x">3.使用元数据说明文档</div>
 
-
-<div class="x-x" id="head">3.head元素</div>
-<div style="text-align: center;font-weight: bold">表3 head元素</div>
+<div style="text-align: center;font-weight: bold">表3 meta元素</div>
 <table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small" width="90%">
     <tr >
         <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
-        <td style="border-bottom: #bebebe solid 1px">head</td>
+        <td style="border-bottom: #bebebe solid 1px">meta</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">元素类型</td>
-        <td style="border-bottom: #bebebe solid 1px">无(为什么不是流元素?)</td>
+        <td style="border-bottom: #bebebe solid 1px">元数据</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
-        <td style="border-bottom: #bebebe solid 1px">html</td>
+        <td style="border-bottom: #bebebe solid 1px">head</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">局部属性</td>
-        <td style="border-bottom: #bebebe solid 1px">无</td>
+        <td style="border-bottom: #bebebe solid 1px">name,content,charset,http-equiv</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">内容</td>
-        <td style="border-bottom: #bebebe solid 1px">必须有一个title元素，其它元数据元素可有可无</td>
+        <td style="border-bottom: #bebebe solid 1px">无</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">标签用法</td>
-        <td style="border-bottom: #bebebe solid 1px">开始标签和结束标签，内含其它元素</td>
+        <td style="border-bottom: #bebebe solid 1px">虚元素形式</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
@@ -138,31 +143,13 @@
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
-        <td style="border-bottom: #bebebe solid 1px">alink,background,bgcolor,link,margintop,marginbottom,marginleft,marginright,marginwidth,text和vlink属性已不再使用。这些属性的效果可用CSS实现</td>
+        <td style="border-bottom: #bebebe solid 1px">charset是html5中新增的。在HTML4中，http-equiv属性可以有任意多个不同的值。而在HTML5中情况有所不同，只有本小节所说的值才能用。在HTML4中的scheme属性在HTML5中已不再使用。
+        此外，现在已不再使用meta元素来指定网页所使用的语言。</td>
     </tr>
     <tr>
         <td>习惯样式</td>
-        <td>body{display:block;margin:8px;} body:focus{outline:none;}</td>
+        <td>无</td>
     </tr>
 </table>
-<p>使用：</p>
-<xmp>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Example</title>
-    </head>
-    <body>
-    <p>abc</p>
-    <a href="http://xxx.ccc">visit xxx</a>
-    </body>
-        <head>
-            <title>......</title>
-        </head>
-        <body>
-            <p> abcdefg</p>
-        </body>
-    </html>
-</xmp>
 </body>
 </html>

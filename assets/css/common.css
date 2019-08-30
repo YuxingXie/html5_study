@@ -45,6 +45,10 @@
     font-weight: bolder;
     color: #313131;
 }
+.x-x-x {
+    padding: 30px;
+    color: #686868;
+}
 i{
     color: #ff135e !important;
     padding-left: 0.125rem !important;
