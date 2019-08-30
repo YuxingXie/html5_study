@@ -2,31 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>构建基本的文档结构</title>
+    <title>用元数据元素说明文档</title>
     <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
-<div class="title">构建基本的文档结构</div>
-<div class="x">
-    前言
-</div>
-<p>最基本的HTML5元素:<dfn>文档元素</dfn>和<a href="../c3/c3-2.html" target="frame"><dfn>元数据元素</dfn></a>。</p>
+<div class="title">用元数据元素说明文档</div>
 
-<div class="x-x">1.DOCTYPE元素</div>
-<p>DOCTYPE元素独一无二自成一类，每个HTML文档都必须以DOCTYPE元素开头(虽然不以它开头也可能不会出错)。</p>
-<div style="text-align: center;font-weight: bold">表1 DOCTYPE元素</div>
+<p>元数据元素可以用来提供关于HTML文档的信息。它们本身不是文档的内容，但提供了关于后面的文档内容的信息。元数据元素应该放在head元素中。</p>
+
+<div class="x-x">1.设置文档标题</div>
+<p>title元素</p>
+<div style="text-align: center;font-weight: bold">表1 title元素</div>
 <table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small" width="90%">
     <tr >
         <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
-        <td style="border-bottom: #bebebe solid 1px">DOCTYPE</td>
+        <td style="border-bottom: #bebebe solid 1px">title</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">元素类型</td>
-        <td style="border-bottom: #bebebe solid 1px">无</td>
+        <td style="border-bottom: #bebebe solid 1px">元数据</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
-        <td style="border-bottom: #bebebe solid 1px">无</td>
+        <td style="border-bottom: #bebebe solid 1px">head</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">局部属性</td>
@@ -34,11 +32,11 @@
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">内容</td>
-        <td style="border-bottom: #bebebe solid 1px">无</td>
+        <td style="border-bottom: #bebebe solid 1px">文档标题或对文档内容言简意赅的说明</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">标签用法</td>
-        <td style="border-bottom: #bebebe solid 1px">单个开始标签</td>
+        <td style="border-bottom: #bebebe solid 1px">开始标签和结束标签，内含文字</td>
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
@@ -46,56 +44,55 @@
     </tr>
     <tr>
         <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
-        <td style="border-bottom: #bebebe solid 1px">HTML4中要求要有的DTD已不再使用</td>
+        <td style="border-bottom: #bebebe solid 1px">无</td>
+    </tr>
+    <tr>
+        <td>习惯样式</td>
+        <td>title{display:none;}</td>
+    </tr>
+</table>
+
+
+<div class="x-x">2.设置相对URL的解析基准</div>
+<p>base元素可以用来设置一个基准URL，让HTML文档中的相对链接在此基础上进行解析。</p>
+
+<div style="text-align: center;font-weight: bold">表2 base元素</div>
+<table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small" width="90%">
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
+        <td style="border-bottom: #bebebe solid 1px">base</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">元素类型</td>
+        <td style="border-bottom: #bebebe solid 1px">元数据</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
+        <td style="border-bottom: #bebebe solid 1px">head</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">局部属性</td>
+        <td style="border-bottom: #bebebe solid 1px">href、target</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">内容</td>
+        <td style="border-bottom: #bebebe solid 1px">无</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">标签用法</td>
+        <td style="border-bottom: #bebebe solid 1px">虚元素形式</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
+        <td style="border-bottom: #bebebe solid 1px">否</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
+        <td style="border-bottom: #bebebe solid 1px">无</td>
     </tr>
     <tr>
         <td>习惯样式</td>
         <td>无</td>
-    </tr>
-</table>
-
-<p>使用：</p>
-<xmp><!DOCTYPE html></xmp>
-<p>我的疑惑：局部属性：无，这里的html不是一个属性吗？并且前面的这个叹号又表示什么？在w3School看了一下，那里他们认为!是标签的一部分。</p>
-
-<div class="x-x">2.html元素</div>
-<div style="text-align: center;font-weight: bold">表2 html元素</div>
-<table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small" width="90%">
-    <tr >
-        <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
-        <td style="border-bottom: #bebebe solid 1px">html</td>
-    </tr>
-    <tr>
-        <td style="border-bottom: #bebebe solid 1px">元素类型</td>
-        <td style="border-bottom: #bebebe solid 1px">无</td>
-    </tr>
-    <tr>
-        <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
-        <td style="border-bottom: #bebebe solid 1px">无</td>
-    </tr>
-    <tr>
-        <td style="border-bottom: #bebebe solid 1px">局部属性</td>
-        <td style="border-bottom: #bebebe solid 1px"><a href="../c40">mainfest</a></td>
-    </tr>
-    <tr>
-        <td style="border-bottom: #bebebe solid 1px">内容</td>
-        <td style="border-bottom: #bebebe solid 1px">head元素和body元素各一</td>
-    </tr>
-    <tr>
-        <td style="border-bottom: #bebebe solid 1px">标签用法</td>
-        <td style="border-bottom: #bebebe solid 1px">开始标签和结束标签，内含其它元素</td>
-    </tr>
-    <tr>
-        <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
-        <td style="border-bottom: #bebebe solid 1px">否</td>
-    </tr>
-    <tr>
-        <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
-        <td style="border-bottom: #bebebe solid 1px">新增mainfest属性，html4版本中的属性不再使用</td>
-    </tr>
-    <tr>
-        <td>习惯样式</td>
-        <td>html{display:block;} html:focus{outline:none;}</td>
     </tr>
 </table>
 <p>使用：</p>
