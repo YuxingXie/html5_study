@@ -151,5 +151,61 @@
         <td>无</td>
     </tr>
 </table>
+<p>每个meta元素只用用于一种用途。如果在这些特性中想要使用的不止一个，那就应该在head元素中添加多个meta元素。</p>
+<div class="x-x-x">1. 指定名/值元数据对</div>
+<p>使用name和content属性指定名/值对。</p>
+<xmp>
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Example</title>
+            <meta name="author" content="Admin Freeman"/>
+            <meta name="description" content="A simple example"/>
+            <meta name="robots" content="noindex"/>
+        </head>
+    </html>
+</xmp>
+<p>上面的author，description都是预设的值，不是自定义的值。</p>
+<p>一个比较用得多的name是robots,它告诉搜索引擎如何对待该文档，有三个大多数搜索引擎认识的值：noindex,noarchive,nofollow。</p>
+<div style="text-align: center;font-weight: bold">表4 供meta元素使用的预定义元数据类型</div>
+<table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small;text-align: center" width="90%">
+    <tr >
+        <th width="20%" style="border-bottom: #bebebe solid 1px">元数据名称(name)</th>
+        <th style="border-bottom: #bebebe solid 1px">说明</th>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">application name</td>
+        <td style="border-bottom: #bebebe solid 1px">当前页面所属的Web应用程序的名称</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">author</td>
+        <td style="border-bottom: #bebebe solid 1px">当前页面作者名</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">description</td>
+        <td style="border-bottom: #bebebe solid 1px">当前页面的说明</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">generator</td>
+        <td style="border-bottom: #bebebe solid 1px">用来生成HTML的软件名称(如Ruby on Rails,ASP.NET等服务器端框架生成HTML页的情况下)</td>
+    </tr>
+    <tr >
+        <td>keywords</td>
+        <td>一批以逗号分开的字符串，用来描述页面的内容</td>
+    </tr>
+</table>
+
+<div class="x-x-x">2. 声明字符编码</div>
+<xmp>
+    <meta charset="UTF-8"/>
+</xmp>
+
+<div class="x-x-x">3. 模拟HTTP标头字段</div>
+<p>懂服务端程序的应该都能理解，比如:</p>
+<xmp>
+    <meta http-equiv="content-type" content="application/json"/>
+</xmp>
+
+<div class="x-x">4. 定义CSS样式</div>
 </body>
 </html>
