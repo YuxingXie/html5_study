@@ -22,14 +22,16 @@
     vertical-align: top;
     display: inline-block;
     width: 20%;
-    height: 1000px;
     padding: 10px;
     background-color: #eee;
+    overflow: scroll;
 }
 .content {
     display: inline-block;
     width: 75%;
     height: 1000px;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
 }
 .x {
     font-weight: bold;
