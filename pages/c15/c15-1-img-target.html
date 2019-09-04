@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点了哪里?</title>
+</head>
+<body>
+
+<p>点了<b id="x">?</b>,<b id="y">?</b></p>
+<script>
+    var coords=window.location.href.split('?')[1].split(',');
+    document.getElementById('x').innerHTML=coords[0];
+    document.getElementById('y').innerHTML=coords[1];
+</script>
+</body>
+</html>

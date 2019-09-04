@@ -2,11 +2,223 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>15.1 用基本的文字元素标记内容</title>
+    <title>15.1 嵌入图像</title>
     <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
-<div class="title">8.2 用基本的文字元素标记内容</div>
+<div class="title">15.1 嵌入图像</div>
+<p>嵌入图像使用img元素。</p>
+<div style="text-align: center;font-weight: bold">表1 img元素</div>
+<table width="90%">
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
+        <td style="border-bottom: #bebebe solid 1px">img</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">元素类型</td>
+        <td style="border-bottom: #bebebe solid 1px">短语元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
+        <td style="border-bottom: #bebebe solid 1px">任何可能包含短语内容的元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">局部属性</td>
+        <td style="border-bottom: #bebebe solid 1px">src,alt,height,width,usemap,ismap</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">内容</td>
+        <td style="border-bottom: #bebebe solid 1px">无</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">标签用法</td>
+        <td style="border-bottom: #bebebe solid 1px">虚元素形式</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
+        <td style="border-bottom: #bebebe solid 1px">否</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
+        <td style="border-bottom: #bebebe solid 1px">border,longdesc,name,align,hspace和vspace属性在HTML5中已被废弃</td>
+    </tr>
+    <tr>
+        <td>习惯样式</td>
+        <td>无</td>
+    </tr>
+</table>
+<p>alt属性定义了img元素的备用内容。此内容会在图像无法显示时呈现(我之前居然一直以为这个属性是鼠标悬浮显示的文字)。代码及显示效果：</p>
+<xmp>
+    <img src="xxxb" alt="图片哪里去了?" width="200" height="150"/>
+</xmp>
+<img src="xxxb" alt="图片哪里去了?" width="200" height="150"/>
 
+<p>width和height指定图片宽和高。因为图像是在HTML处理完之后才会加载，如果不指定宽和高，浏览器不知道该预留多大的位置，加载的时候导致页面晃动。所以指定一个宽和高是比较好的习惯。</p>
+<p>这里我有一个一直困扰我的问题先提出来一下。响应式设计一般都基于屏幕的宽度。当我们设计在屏幕中全宽显示多张图片(比如显示用户的个人相册)，我们可以设置width=100%,但图像高度可能是不一致的，我们如果不设置高度仍然会造成屏幕晃动，
+而设置一个固定的高度又会造成图片拉伸变形。</p>
+<p>作者警告，width和height是告诉浏览器图像实际有多大，而不是你希望它有多大(实际上你希望它多大是可以通过指定width和height实现)，不应该用它来实现缩放图片。我觉得作者大概是希望在css中指定图片的宽和高吧。</p>
+<xmp>
+    <img src="../../assets/img/011.jpg" width="100%"  style="width: 50%"/>
+</xmp>
+<img src="../../assets/img/011.jpg" width="100%"  style="width: 50%"/>
+
+<div class="x">1.在超链接里嵌入图像</div>
+<p>简单的在a内嵌套一个img就不用介绍了，学习一些高级点的用法。</p>
+<p>a内嵌套img，然后img加上ismap属性，那么导航到的目的地会加上查询字符串，代码：</p>
+<xmp>
+    请点图片:
+    <a href="c15-1-img-target.html" target="_blank">
+        <img src="../../assets/img/011.jpg" style="width:25%" ismap/>
+    </a>
+</xmp>
+请点图片:
+<a href="c15-1-img-target.html" target="_blank">
+    <img src="../../assets/img/011.jpg" style="width:25%" ismap/>
+</a>
+<p>我们看到浏览器地址栏中出现了?74,37这样的一对数字，它表示我们点击了74,37这个位置。这个值是基于图片左上角为原点的二维坐标像素值。</p>
+<div class="x">2.创建客户端分区响应图</div>
+<p>使用map和area元素组合创建<i>客户端分区响应图</i>,实现点击图片的不同区域让浏览器导航到不同URL。</p>
+
+<div style="text-align: center;font-weight: bold">表2 map元素</div>
+<table width="90%">
+    <tr>
+        <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
+        <td style="border-bottom: #bebebe solid 1px">map</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">元素类型</td>
+        <td style="border-bottom: #bebebe solid 1px">map元素在包含短语内容时被视为短语元素，包括流内容时则被视为流元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
+        <td style="border-bottom: #bebebe solid 1px">任何可以包含短语元素或流内容的元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">局部属性</td>
+        <td style="border-bottom: #bebebe solid 1px">name</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">内容</td>
+        <td style="border-bottom: #bebebe solid 1px">一个或多个area元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">标签用法</td>
+        <td style="border-bottom: #bebebe solid 1px">开始和结束标签</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
+        <td style="border-bottom: #bebebe solid 1px">否</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
+        <td style="border-bottom: #bebebe solid 1px">如果使用了id属性，则它的值必须和name属性相同</td>
+    </tr>
+    <tr>
+        <td>习惯样式</td>
+        <td>无</td>
+    </tr>
+</table>
+<p>map元素包含一个或多个area元素，它们各自代表了图像上可被点击的一块区域。</p>
+
+<div style="text-align: center;font-weight: bold">表3 area元素</div>
+<table width="90%">
+    <tr>
+        <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
+        <td style="border-bottom: #bebebe solid 1px">area</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">元素类型</td>
+        <td style="border-bottom: #bebebe solid 1px">短语元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
+        <td style="border-bottom: #bebebe solid 1px">map元素</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">局部属性</td>
+        <td style="border-bottom: #bebebe solid 1px">alt,href,target,rel,media,hreflang,type,shape,coords</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">内容</td>
+        <td style="border-bottom: #bebebe solid 1px">无</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">标签用法</td>
+        <td style="border-bottom: #bebebe solid 1px">虚元素形式</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
+        <td style="border-bottom: #bebebe solid 1px">否</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
+        <td style="border-bottom: #bebebe solid 1px">rel,media和hreflang属性是HTML5中新增的。nohref属性已被废弃</td>
+    </tr>
+    <tr>
+        <td>习惯样式</td>
+        <td>area {display:none;}</td>
+    </tr>
+</table>
+<p>area元素的属性可以被分为两类，第一类处理的是area所代表的图像区域被用户点击后浏览器会导航到的URL。见下表：</p>
+<div style="text-align: center;font-weight: bold">表4 与目标地址相关的area元素属性</div>
+<table  width="90%">
+    <tr >
+        <th width="20%" style="border-bottom: #bebebe solid 1px">属性</th>
+        <th style="border-bottom: #bebebe solid 1px">说明</th>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">href</td>
+        <td style="border-bottom: #bebebe solid 1px">此区域被点击时浏览器应该加载的URL</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">alt</td>
+        <td style="border-bottom: #bebebe solid 1px">替代内容，与img的alt属性相似</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">target</td>
+        <td style="border-bottom: #bebebe solid 1px">应该用来显示URL的浏览器上下文，参见第七章的<a href="../../pages/c7/c7-2.html"> base元素</a>的对应属性</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">rel</td>
+        <td style="border-bottom: #bebebe solid 1px">描述了当前文档和目标文档之间的关系，参见第七章的link元素对应属性</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">media</td>
+        <td style="border-bottom: #bebebe solid 1px">此区域适用的媒介，参见第七章style元素的对应属性</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">hreflang</td>
+        <td style="border-bottom: #bebebe solid 1px">目标文档的语言</td>
+    </tr>
+    <tr >
+        <td>type</td>
+        <td>目标文档的MIME类型</td>
+    </tr>
+</table>
+<p>第二类用来标明用户可点击的各个图像区域，由shape和coords属性共同定义，这两个属性的值存在一些互动哦。</p>
+<div style="text-align: center;font-weight: bold">表5 shape和coords属性的值</div>
+<table  width="90%">
+    <tr >
+        <th width="20%" style="border-bottom: #bebebe solid 1px">shape值</th>
+        <th style="border-bottom: #bebebe solid 1px">coords值的性质和意义</th>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">rect</td>
+        <td style="border-bottom: #bebebe solid 1px">此区域被点击时浏览器应该加载的URL</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">circle</td>
+        <td style="border-bottom: #bebebe solid 1px">替代内容，与img的alt属性相似</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">poly</td>
+        <td style="border-bottom: #bebebe solid 1px">应该用来显示URL的浏览器上下文，参见第七章的<a href="../../pages/c7/c7-2.html"> base元素</a>的对应属性</td>
+    </tr>
+
+    <tr >
+        <td>default</td>
+        <td>目标文档的MIME类型</td>
+    </tr>
+</table>
 </body>
 </html>
