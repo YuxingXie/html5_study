@@ -207,5 +207,171 @@
 </xmp>
 
 <div class="x-x">4. 定义CSS样式</div>
+<div style="text-align: center;font-weight: bold">表5 style元素</div>
+<table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small" width="90%">
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">元素</td>
+        <td style="border-bottom: #bebebe solid 1px">style</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">元素类型</td>
+        <td style="border-bottom: #bebebe solid 1px">无</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">允许具有的父元素</td>
+        <td style="border-bottom: #bebebe solid 1px">任何可包含元数据元素的元素，包括head,div,noscript,section,article,aside</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">局部属性</td>
+        <td style="border-bottom: #bebebe solid 1px">type,media,scoped</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">内容</td>
+        <td style="border-bottom: #bebebe solid 1px">css样式</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">标签用法</td>
+        <td style="border-bottom: #bebebe solid 1px">开始标签和结束标签，内含文字</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">是否为HTML5新增</td>
+        <td style="border-bottom: #bebebe solid 1px">否</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">在HTML5中的变化</td>
+        <td style="border-bottom: #bebebe solid 1px">scoped属性为HTML5新增</td>
+    </tr>
+    <tr>
+        <td>习惯样式</td>
+        <td>无</td>
+    </tr>
+</table>
+<p>用法：</p>
+<xmp>
+    <style type="text/css">
+        a {
+            background-color: grey;
+            color: white;
+            padding: 0.5em;
+        }
+    </style>
+</xmp>
+<p>type属性的值目前只有text/css一个。</p>
+<p>如果存在scoped属性，那么其中定义的样式只作用于该元素的父元素及所有兄弟元素，不用scoped的话样式作用于整个文档(表示子元素不继承这些样式？)。</p>
+<p>media属性表明文档在什么设备上使用样式。比如media="screen"表示在屏幕上使用样式。</p>
+
+<div style="text-align: center;font-weight: bold">表6 供style元素的media属性使用的规定设备值</div>
+<table style="margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small;text-align: center" width="90%">
+    <tr >
+        <th width="20%" style="border-bottom: #bebebe solid 1px">设备</th>
+        <th style="border-bottom: #bebebe solid 1px">说明</th>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">all</td>
+        <td style="border-bottom: #bebebe solid 1px">所有设备(默认值)</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">aural</td>
+        <td style="border-bottom: #bebebe solid 1px">语音合成器</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">braille</td>
+        <td style="border-bottom: #bebebe solid 1px">盲文设备</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">handheld</td>
+        <td style="border-bottom: #bebebe solid 1px">手持设备</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">projection</td>
+        <td style="border-bottom: #bebebe solid 1px">投影机</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">print</td>
+        <td style="border-bottom: #bebebe solid 1px">打印预览和打印页面</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">screen</td>
+        <td style="border-bottom: #bebebe solid 1px">计算机显示器屏幕</td>
+    </tr>
+    <tr >
+        <td width="20%" style="border-bottom: #bebebe solid 1px">tty</td>
+        <td style="border-bottom: #bebebe solid 1px">电传打字机之类的等宽设备</td>
+    </tr>
+    <tr >
+        <td>tv</td>
+        <td>电视机</td>
+    </tr>
+</table>
+<p>各浏览器对不同media的解释可能不一致。</p>
+<p>请看下面的示例，media还有一些其它特性：</p>
+<xmp>
+    <style media="screen AND (max-width:500px)" type="text/css">
+        /*...*/
+    </style>
+    <style media="screen AND (min-width:500px)" type="text/css">
+        /*...*/
+    </style>
+</xmp>
+<p>如果我们缩放一下浏览器，在500px左右会应用不同的样式。如果用过bootstrap对这种特性应该不会陌生。</p>
+<p>除了AND以外还有OR(用逗号表示)、NOT组合设备。</p>
+<p>下表列出media属性的特殊特性值，它们都可以用max-和min-前缀(或称限定词)修饰构建阈值。</p>
+<div style="text-align: center;font-weight: bold">表6 供style元素的media属性使用的规定设备值</div>
+<table width="90%">
+    <tr >
+        <th width="25%" style="border-bottom: #bebebe solid 1px">特性</th>
+        <th width="50%" style="border-bottom: #bebebe solid 1px">说明</th>
+        <th style="border-bottom: #bebebe solid 1px">示例</th>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">width,height</td>
+        <td style="border-bottom: #bebebe solid 1px">指定浏览器的宽度和高度，单位px</td>
+        <td style="border-bottom: #bebebe solid 1px">width:200px</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">device-width,device-height</td>
+        <td style="border-bottom: #bebebe solid 1px">指定整个设备(而不仅仅是浏览器窗口)的宽度和高度，单位px</td>
+        <td style="border-bottom: #bebebe solid 1px">min-device-width:200px</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">resolution</td>
+        <td style="border-bottom: #bebebe solid 1px">指定设备的像素密度，单位为dpi(点/英寸)或dpcm(点/厘米)</td>
+        <td style="border-bottom: #bebebe solid 1px">max-resolution:600dpi</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">orientation</td>
+        <td style="border-bottom: #bebebe solid 1px">指定设备的较长边朝向，支持的值有portrait和landscape,没有限定词</td>
+        <td style="border-bottom: #bebebe solid 1px">orientation:portrait</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">aspect-ratio,device-aspect-ratio</td>
+        <td style="border-bottom: #bebebe solid 1px">指定浏览器窗口或整个设备的像素宽高比，其值为像素宽与高的比值</td>
+        <td style="border-bottom: #bebebe solid 1px">min-aspect-ratio:16/9</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">color,monochrome</td>
+        <td style="border-bottom: #bebebe solid 1px">指定彩色或黑白设备上每个像素占用的二进制位数</td>
+        <td style="border-bottom: #bebebe solid 1px">min-monochrome:2</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">color-index</td>
+        <td style="border-bottom: #bebebe solid 1px">指定设备所能显示的颜色数目</td>
+        <td style="border-bottom: #bebebe solid 1px">max-color-index:256</td>
+    </tr>
+    <tr>
+        <td style="border-bottom: #bebebe solid 1px">scan</td>
+        <td style="border-bottom: #bebebe solid 1px">指定电视的扫描模式，支持的值由progressive和interlace,没有限定词</td>
+        <td style="border-bottom: #bebebe solid 1px">scan:interlace</td>
+    </tr>
+    <tr >
+        <td>grid</td>
+        <td>指定设备的类型。网格型设备使用固定的网格显示内容，例如基于字符的终端和单行显示的寻呼机，支持的值有0和1(1代表网格型设备)，没有限定词</td>
+        <td>grid:0</td>
+    </tr>
+</table>
+<p>同样的，这些media特性值不同浏览器解释有所不同。</p>
+
+<div class="x-x">5. 指定外部资源</div>
+<p>为了加快学习进度，本小节笔记先略。。。</p>
 </body>
 </html>
