@@ -203,21 +203,23 @@
         <th style="border-bottom: #bebebe solid 1px">coords值的性质和意义</th>
     </tr>
     <tr >
-        <td width="20%" style="border-bottom: #bebebe solid 1px">rect</td>
-        <td style="border-bottom: #bebebe solid 1px">此区域被点击时浏览器应该加载的URL</td>
+        <td width="20%" style="border-bottom: #bebebe solid 1px">rect(矩形)</td>
+        <td style="border-bottom: #bebebe solid 1px">必须是四个整数用逗号隔开，书上的解释太啰嗦了，可以认为是图像区域的左上与右下的两个坐标点</td>
     </tr>
     <tr >
-        <td width="20%" style="border-bottom: #bebebe solid 1px">circle</td>
-        <td style="border-bottom: #bebebe solid 1px">替代内容，与img的alt属性相似</td>
+        <td width="20%" style="border-bottom: #bebebe solid 1px">circle(圆形)</td>
+        <td style="border-bottom: #bebebe solid 1px">
+            三个整数用逗号隔开，前两个可以认为是圆心的坐标，第三个是半径
+        </td>
     </tr>
     <tr >
-        <td width="20%" style="border-bottom: #bebebe solid 1px">poly</td>
-        <td style="border-bottom: #bebebe solid 1px">应该用来显示URL的浏览器上下文，参见第七章的<a href="../../pages/c7/c7-2.html"> base元素</a>的对应属性</td>
+        <td width="20%" style="border-bottom: #bebebe solid 1px">poly(多边形)</td>
+        <td style="border-bottom: #bebebe solid 1px">一系列的顶点坐标值用逗号分隔</td>
     </tr>
 
     <tr >
-        <td>default</td>
-        <td>目标文档的MIME类型</td>
+        <td>default(默认区域，即覆盖整张图片)</td>
+        <td>不需提供coords值</td>
     </tr>
 </table>
 </body>
