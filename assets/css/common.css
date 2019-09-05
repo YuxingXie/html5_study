@@ -19,19 +19,18 @@
     color: green;
 }
 .menu {
-    vertical-align: top;
+    /*vertical-align: top;*/
     display: inline-block;
     width: 20%;
-    padding: 10px;
+    height: 100%;
+    /*padding: 10px;*/
     background-color: #eee;
     overflow: scroll;
 }
 .content {
     display: inline-block;
     width: 75%;
-    height: 1000px;
-    padding-bottom: 50px;
-    margin-bottom: 100px;
+    height: 100%;
 }
 .x {
     font-weight: bold;

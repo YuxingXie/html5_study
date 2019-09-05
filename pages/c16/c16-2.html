@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16.2 盒模型</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">16.2 盒模型</div>
+<p>CSS中一个基本概念就是<i>盒模型</i>。可见元素会占据一个矩形区域，该区域就是元素的盒子(box)，由四个部分组成，如下图：</p>
+
+<div style="text-align: center">
+    <img src="../../assets/img/box-model.png" style="width: 60%;margin: auto"/>
+    <div style="text-align: center">图1：CSS盒模型</div>
+</div>
+<p>图片说明：因为不是书上的原图，需要说明的是，最内部那个包裹element的虚线框叫做内容边界。</p>
+<p>元素盒子有两个部分可见:内容和边框。</p>
+<p>虽然这个概念很容易理解，但因为其重要性，还是要把盒模型的重要组成列出来:</p>
+<ul>
+    <li>内容边界:内容所占用的地方</li>
+    <li>padding(内边距):内容到边框的距离</li>
+    <li>border(边框):元素的边框</li>
+    <li>margin(外边距):元素的边框外的距离</li>
+</ul>
+<p>这好像把一张相片嵌到相框里，相片本身是内容，相框的内侧是border，相框的内侧到相片之间是padding,相框内侧到外侧之间是margin。当然你也可以认为相框外侧是border，但margin就不好用实物类比了。</p>
+<p>元素可以包含其它元素，这种情况下，父元素的内容盒子称为子元素的<i>块容器</i>(container block)，通常称为<i>容器</i>。</p>
+<p>看看下面的代码和表现：</p>
+<xmp>
+    <div style="border: #687888 dotted 1px;background-color: #bfbfbf;color: white">
+        <div style="border: black solid 1px;padding: 50px;margin: 100px;display: inline-block;background-color: #68b9ff">元素内容</div>
+        <div style="border: red solid 1px;padding: 50px;margin: 100px;display: inline-block;background-color: #8a92ff">元素内容</div>
+        <div style="display: inline-block;padding: 50px;margin: 100px;">元素内容</div>
+    </div>
+</xmp>
+<div style="border: #687888 dotted 1px;background-color: #bfbfbf;color: white">
+    <div style="border: black solid 1px;padding: 50px;margin: 100px;display: inline-block;background-color: #68b9ff">元素内容</div>
+    <div style="border: red solid 1px;padding: 50px;margin: 100px;display: inline-block;background-color: #8a92ff">元素内容</div>
+    <div style="display: inline-block;padding: 50px;margin: 100px;">元素内容</div>
+</div>
+<p>从上面的代码和表现看，我们看到了很多东西其实很有玄机。比如去掉div换成span后表现会大大不一样。比如第三个子div为何没有继承容器的border样式。</p>
+</body>
+</html>
