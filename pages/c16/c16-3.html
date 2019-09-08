@@ -22,28 +22,28 @@
         <th style="width:5%;">CSS</th>
     </tr>
 
-    <tr>
+    <tr id="class">
         <td><a href="/cssref/selector_class.asp" title="CSS .class 选择器">.<i>class</i></a></td>
         <td>.intro</td>
         <td>选择 class=&quot;intro&quot; 的所有元素。</td>
         <td>1</td>
     </tr>
 
-    <tr>
+    <tr id="id">
         <td><a href="/cssref/selector_id.asp" title="CSS #id 选择器">#<i>id</i></a></td>
         <td>#firstname</td>
         <td>选择 id=&quot;firstname&quot; 的所有元素。</td>
         <td>1</td>
     </tr>
 
-    <tr>
+    <tr id="all">
         <td><a href="/cssref/selector_all.asp" title="CSS * 选择器">*</a></td>
         <td>*</td>
         <td>选择所有元素。</td>
         <td>2</td>
     </tr>
 
-    <tr>
+    <tr id="element">
         <td><a href="/cssref/selector_element.asp" title="CSS element 选择器"><i>element</i></a></td>
         <td>p</td>
         <td>选择所有 &lt;p&gt; 元素。</td>
@@ -78,34 +78,53 @@
         <td>2</td>
     </tr>
 
-    <tr>
+    <tr id="attribute">
         <td><a href="/cssref/selector_attribute.asp" title="CSS [attribute] 选择器">[<i>attribute</i>]</a></td>
         <td>[target]</td>
         <td>选择带有 target 属性所有元素。</td>
         <td>2</td>
     </tr>
 
-    <tr>
+    <tr id="a_eq_v">
         <td><a href="/cssref/selector_attribute_value.asp" title="CSS [attribute=value] 选择器">[<i>attribute</i>=<i>value</i>]</a></td>
         <td>[target=_blank]</td>
         <td>选择 target=&quot;_blank&quot; 的所有元素。</td>
         <td>2</td>
     </tr>
 
-    <tr>
+    <tr id="a_include_v">
         <td><a href="/cssref/selector_attribute_value_contain.asp" title="CSS [attribute~=value] 选择器">[<i>attribute</i>~=<i>value</i>]</a></td>
         <td>[title~=flower]</td>
         <td>选择 title 属性包含单词 &quot;flower&quot; 的所有元素。</td>
         <td>2</td>
     </tr>
 
-    <tr>
+    <tr id="a_split_start_with_v">
         <td><a href="/cssref/selector_attribute_value_start.asp" title="CSS [attribute|=value] 选择器">[<i>attribute</i>|=<i>value</i>]</a></td>
         <td>[lang|=en]</td>
-        <td>选择 lang 属性值以 &quot;en&quot; 开头的所有元素。</td>
+        <td>选择 lang 属性值以 &quot;en&quot; 开头的所有元素，这里属性值必须是烤肉串命名法，比如en-US,或者是整个单词。</td>
         <td>2</td>
     </tr>
+    <tr id="a_start_with_v">
+        <td><a href="/cssref/selector_attr_begin.asp" title="CSS [attribute^=value] 选择器">[<i>attribute</i>^=<i>value</i>]</a></td>
+        <td>a[src^=&quot;https&quot;]</td>
+        <td>选择其 src 属性值以 &quot;https&quot; 开头的每个 &lt;a&gt; 元素。</td>
+        <td>3</td>
+    </tr>
 
+    <tr id="a_end_with_v">
+        <td><a href="/cssref/selector_attr_end.asp" title="CSS [attribute$=value] 选择器">[<i>attribute</i>$=<i>value</i>]</a></td>
+        <td>a[src$=&quot;.pdf&quot;]</td>
+        <td>选择其 src 属性以 &quot;.pdf&quot; 结尾的所有 &lt;a&gt; 元素。</td>
+        <td>3</td>
+    </tr>
+
+    <tr id="a_include_sub_v">
+        <td><a href="/cssref/selector_attr_contain.asp" title="CSS [attribute*=value] 选择器">[<i>attribute</i>*=<i>value</i>]</a></td>
+        <td>a[src*=&quot;abc&quot;]</td>
+        <td>选择其 src 属性中包含 &quot;abc&quot; 子串的每个 &lt;a&gt; 元素。</td>
+        <td>3</td>
+    </tr>
     <tr>
         <td><a href="/cssref/selector_link.asp" title="CSS :link 选择器">:link</a></td>
         <td>a:link</td>
@@ -190,26 +209,7 @@
         <td>3</td>
     </tr>
 
-    <tr>
-        <td><a href="/cssref/selector_attr_begin.asp" title="CSS [attribute^=value] 选择器">[<i>attribute</i>^=<i>value</i>]</a></td>
-        <td>a[src^=&quot;https&quot;]</td>
-        <td>选择其 src 属性值以 &quot;https&quot; 开头的每个 &lt;a&gt; 元素。</td>
-        <td>3</td>
-    </tr>
 
-    <tr>
-        <td><a href="/cssref/selector_attr_end.asp" title="CSS [attribute$=value] 选择器">[<i>attribute</i>$=<i>value</i>]</a></td>
-        <td>a[src$=&quot;.pdf&quot;]</td>
-        <td>选择其 src 属性以 &quot;.pdf&quot; 结尾的所有 &lt;a&gt; 元素。</td>
-        <td>3</td>
-    </tr>
-
-    <tr>
-        <td><a href="/cssref/selector_attr_contain.asp" title="CSS [attribute*=value] 选择器">[<i>attribute</i>*=<i>value</i>]</a></td>
-        <td>a[src*=&quot;abc&quot;]</td>
-        <td>选择其 src 属性中包含 &quot;abc&quot; 子串的每个 &lt;a&gt; 元素。</td>
-        <td>3</td>
-    </tr>
 
     <tr>
         <td><a href="/cssref/selector_first-of-type.asp" title="CSS :first-of-type 选择器">:first-of-type</a></td>

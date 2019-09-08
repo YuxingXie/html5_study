@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17.1 CSS标准化</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">17.1 使用CSS基本选择器</div>
+<div class="x">1.选择所有元素</div>
+<p>见<a href="../c16/c16-3.html#all">16.3</a> 简明参考。</p>
+<p>这个选择器匹配所有元素，过于粗粒度，似乎有点用力过猛。但它似乎可以搭配其它选择器使用。</p>
+<div class="x">2.根据类型(不是class)选择元素</div>
+<p>见<a href="../c16/c16-3.html#element">16.3</a> 简明参考。</p>
+<div class="x">3.根据类选择元素</div>
+<p>见<a href="../c16/c16-3.html#class">16.3</a> 简明参考。</p>
+
+<p>假设有元素使用class="clazz"，则选择器可以是*.clazz和.clazz这两种方式。如果span.clazz则表示span元素中包含class="clazz"的元素。</p>
+
+<p>span.class1.class2表示什么？</p>
+<p>它表示span中既有class1又有class2的元素。其实它和span.clazz的选择逻辑是一样的。</p>
+
+<div class="x">4.根据ID选择元素</div>
+<p>见<a href="../c16/c16-3.html#id">16.3</a> 简明参考。</p>
+
+<div class="x">5.根据属性选择元素</div>
+<p>见<a href="../c16/c16-3.html#attribute">16.3</a> 简明参考。</p>
+<p>举例，要选择包含有href属性的元素，用法是[href]。如果选择a元素中包含herf属性的元素，可用a[href]。</p>
+<p>但若和href值有一定的匹配，则包含6个不同的用法。</p>
+<ul>
+    <li><a style="padding-right: 0.5rem" href="../c16/c16-3.html#a_eq_v">[attribute=value]</a> 选取带有指定属性和值的元素</li>
+    <li><a style="padding-right: 0.5rem" href="../c16/c16-3.html#a_include_v">[attribute~=value]</a>选取属性值中包含指定词汇的元素</li>
+    <li><a style="padding-right: 0.5rem" href="../c16/c16-3.html#a_split_start_with_v">[attribute|=value]</a>选取带有以指定值开头的属性值的元素,该值必须是整个单词，比如 lang="en"，或者后面跟着连字符，比如 lang="en-us"。</li>
+    <li><a style="padding-right: 0.5rem" href="../c16/c16-3.html#a_start_with_v">[attribute^=value]</a>匹配属性值以指定值开头的每个元素</li>
+    <li><a style="padding-right: 0.5rem" href="../c16/c16-3.html#a_end_with_v">[attribute$=value]</a>匹配属性值以指定值结尾的每个元素</li>
+    <li><a style="padding-right: 0.5rem" href="../c16/c16-3.html#a_include_sub_v">[attribute*=value]</a>匹配属性值包含指定值的每个元素</li>
+</ul>
+<p>这里有两对类似但其实不一样的用法：</p>
+<p>一对是[attribute~=value]和[attribute*=value],都表示属性包含值;</p>
+<p>另一对是[attribute|=value]和[attribute^=value]，都表示属性以值开头。</p>
+
+<p>下面的代码可以看出[attribute~=value]和[attribute*=value]的区别：</p>
+<xmp>
+    <style>
+        [href~="flower"]{
+            color: red;
+        }
+        [name*="leaf"]{
+            color: green;
+        }
+    </style>
+    <div href="flower-a">flower-a</div>
+    <div href="flowera">flowera</div>
+    <div href="flowerA">flowerA</div>
+    <div href="flower">flower</div>
+    <div href="flower rose">flower rose</div>
+
+    <div name="leaf-a">leaf-a</div>
+    <div name="leafa">leafa</div>
+    <div name="leafA">leafA</div>
+    <div name="leaf">leaf</div>
+    <div name="leaf apple">leaf apple</div>
+</xmp>
+<p>效果:</p>
+<style>
+    [href~="flower"]{
+        color: red;
+    }
+    [name*="leaf"]{
+        color: green;
+    }
+</style>
+<div style="padding-left: 30px">
+<div href="flower-a">flower-a</div>
+<div href="flowera">flowera</div>
+<div href="flowerA">flowerA</div>
+<div href="flower">flower</div>
+<div href="flower rose">flower rose</div>
+
+<div name="leaf-a">leaf-a</div>
+<div name="leafa">leafa</div>
+<div name="leafA">leafA</div>
+<div name="leaf">leaf</div>
+<div name="leaf apple">leaf apple</div>
+</div>
+<p>可见[attribute~=value]的包含是包含一个单词，这个单词是单个单词或用空格分隔，烤肉串和驼峰命名都不能认为是一个单词。[attribute*=value]则只要属性值中包含这个字符就可以匹配。</p>
+</body>
+</html>
