@@ -14,7 +14,7 @@
 <p>:root选择器匹配文档中的根元素。它总是选择html元素(除非是不规范的文档)，所以使用较少。</p>
 
 <div class="x">2.使用子元素选择器</div>
-<p>使用<i>子元素选择器</i>匹配匹配直接包含在其它元素中的单个元素。</p>
+<p>使用<i>子元素选择器</i>匹配直接包含在其它元素中的单个元素。</p>
 <ul>
     <li><a href="../c16/c16-3.html#first-child">:first-child</a> 选择元素的第一个子元素</li>
     <li><a href="../c16/c16-3.html#last-child">:last-child</a> 选择元素的最后一个子元素</li>
@@ -22,6 +22,281 @@
     <li><a href="../c16/c16-3.html#only-of-type">:only-of-type</a> 选择元素指定类型的唯一子元素</li>
 </ul>
 <p>无论W3C还是书本的解释都不那么好理解。所以需要代码示例。</p>
-<div class="xx">2.1.使用:first-child</div>
+<div class="x-x">2.1.使用:first-child选择器</div>
+<p>作者定义它的作用是选择元素的第一个子元素。那么，他所说的元素是指的伪类前面指定的那个选择器所指定的元素吗？</p>
+<p>代码:</p>
+<xmp>
+    <style>
+        [name^="student"]{
+            border:thin black solid;
+            padding:5px;
+            margin-top:2px;
+        }
+        [name^="student"]:first-child{
+            color:red;
+        }
+    </style>
+
+    <div style="padding-left: 30px">
+        <div name="title">
+            <div name="student">
+                Hello,students!
+            </div>
+        </div>
+        <div name="content">
+            <div name="studentAlice">
+                <div>Who am I?</div>
+                <div>I am Alice.</div>
+            </div>
+            <div name="studentBob">
+                <div>Who am I?</div>
+                <div>I am Bob.</div>
+            </div>
+            <div name="studentJohn">
+                <div>Who am I?</div>
+                <div>I am John.</div>
+            </div>
+        </div>
+
+    </div>
+</xmp>
+<p>效果：</p>
+<style>
+    [name^="student"]{
+        border:thin black solid;
+        padding:5px;
+        margin-top:2px;
+    }
+    [name^="student"]:first-child{
+        color:red;
+    }
+</style>
+
+<div style="padding-left: 30px">
+    <div name="title">
+        <div name="student">
+            Hello,students!
+        </div>
+    </div>
+    <div name="content">
+        <div name="studentAlice">
+            <div>Who am I?</div>
+            <div>I am Alice.</div>
+        </div>
+        <div name="studentBob">
+            <div>Who am I?</div>
+            <div>I am Bob.</div>
+        </div>
+        <div name="studentJohn">
+            <div>Who am I?</div>
+            <div>I am John.</div>
+        </div>
+    </div>
+
+</div>
+
+<p>可见并不是我想的那么一回事，它并不表示[name^="student"]匹配的元素的第一个子元素，也不表示这些匹配的元素中的第一个。</p>
+<p>它用白话文形容就是：<i>我们是我们的爸爸的第一个儿子</i>，我们的爸爸是什么并不重要，但我们都是通过选择器(这里是[name^="student"])选择出来的。</p>
+<div class="x-x">2.2.使用:last-child选择器</div>
+<p>有了上面的研究为基础，这个就不难理解了。看看下面的代码，是否和你的预期一致？</p>
+<xmp>
+    <style>
+        [name^="teacher"]{
+            border:thin black solid;
+            padding:5px;
+            margin-top:2px;
+        }
+        [name^="teacher"]:first-child{
+            color:red;
+        }
+    </style>
+
+    <div style="padding-left: 30px">
+        <div name="title">
+            <div name="teacher">
+                Hello,teachers!
+            </div>
+        </div>
+        <div name="content">
+            <div name="teacherAlice">
+                <div>Who am I?</div>
+                <div>I am teacher Alice.</div>
+            </div>
+            <div name="teacherBob">
+                <div>Who am I?</div>
+                <div>I am teacher Bob.</div>
+            </div>
+            <div name="teacherJohn">
+                <div>Who am I?</div>
+                <div>I am teacher John.</div>
+            </div>
+        </div>
+
+    </div>
+</xmp>
+<style>
+    [name^="teacher"]{
+        border:thin black solid;
+        padding:5px;
+        margin-top:2px;
+    }
+    [name^="teacher"]:last-child{
+        color:red;
+    }
+</style>
+
+<div style="padding-left: 30px">
+    <div name="title">
+        <div name="teacher">
+            Hello,teachers!
+        </div>
+    </div>
+    <div name="content">
+        <div name="teacherAlice">
+            <div>Who am I?</div>
+            <div>I am teacher Alice.</div>
+        </div>
+        <div name="teacherBob">
+            <div>Who am I?</div>
+            <div>I am teacher Bob.</div>
+        </div>
+        <div name="teacherJohn">
+            <div>Who am I?</div>
+            <div>I am teacher John.</div>
+        </div>
+    </div>
+
+</div>
+<div class="x-x">2.3.使用:only-child选择器</div>
+<p>唯一的儿子。代码：</p>
+<xmp>
+    <style>
+        [name^="employee"]{
+            border:thin black solid;
+            padding:5px;
+            margin-top:2px;
+        }
+        [name^="employee"]:only-child{
+            color:red;
+        }
+    </style>
+
+    <div style="padding-left: 30px">
+        <div name="title">
+            <div name="employee">
+                Hello,employees!
+            </div>
+        </div>
+        <div name="content">
+            <div name="employeeAlice">
+                <div>Who am I?</div>
+                <div>I am employee Alice.</div>
+            </div>
+            <div name="employeeBob">
+                <div>Who am I?</div>
+                <div>I am employee Bob.</div>
+            </div>
+            <div name="employeeJohn">
+                <div>Who am I?</div>
+                <div>I am employee John.</div>
+            </div>
+        </div>
+
+    </div>
+</xmp>
+<style>
+    [name^="employee"]{
+        border:thin black solid;
+        padding:5px;
+        margin-top:2px;
+    }
+    [name^="employee"]:only-child{
+        color:red;
+    }
+</style>
+<p>效果：</p>
+<div style="padding-left: 30px">
+    <div name="title">
+        <div name="employee">
+            Hello,employees!
+        </div>
+    </div>
+    <div name="content">
+        <div name="employeeAlice">
+            <div>Who am I?</div>
+            <div>I am employee Alice.</div>
+        </div>
+        <div name="employeeBob">
+            <div>Who am I?</div>
+            <div>I am employee Bob.</div>
+        </div>
+        <div name="employeeJohn">
+            <div>Who am I?</div>
+            <div>I am employee John.</div>
+        </div>
+    </div>
+
+</div>
+<div class="x-x">2.4.使用:only-of-type选择器</div>
+<p>唯一类型的儿子。代码：</p>
+<style>
+    [name^="people"]{
+        border:thin black solid;
+        padding:5px;
+        margin-top:2px;
+    }
+    [name^="people"]:only-of-type{
+        color:red;
+    }
+</style>
+<p>效果：</p>
+<div style="padding-left: 30px">
+    <div name="title">
+        <div name="people">
+            Hello,peoples!
+        </div>
+    </div>
+    <div name="content">
+        <div name="peopleAlice">
+            <div>Who am I?</div>
+            <div>I am people Alice.</div>
+        </div>
+        <span style="display: block" name="peopleBob">
+            <div>Who am I?</div>
+            <div>I am people Bob.</div>
+        </span>
+        <div name="peopleClinton">
+            <div>Who am I?</div>
+            <div>I am people Clinton.</div>
+        </div>
+        <label style="display: block" name="peopleJohn">
+            <div>Who am I?</div>
+            <div>I am people John.</div>
+        </label>
+    </div>
+
+</div>
+<div class="x">3.使用:nth-child选择器</div>
+<ul>
+    <li>:nth-child(n)</li>
+    <li>:nth-last-child(n)</li>
+    <li>:nth-of-type(n)</li>
+    <li>:nth-last-of-type(n)</li>
+</ul>
+<p>除了表达方式上和first,last等伪类子元素选择器有点差异，多了一个索引(1开始)的参数表示第几个元素，含义比较相类似。</p>
+<p>下面这个例子值得看一下：</p>
+<style>
+    [name^="student"] > :nth-child(2){
+        color:green;
+    }
+</style>
+<div style="padding-left: 30px">
+    <div name="studentAlice">
+        I am Alice!
+    </div>
+    <div name="studentBob">
+        I am Bob!
+    </div>
+</div>
 </body>
 </html>

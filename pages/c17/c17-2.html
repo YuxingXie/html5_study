@@ -46,8 +46,31 @@
 
 <div class="x">3.子元素选择器</div>
 <p>见<a href="../c16/c16-3.html#son">16.3</a> 简明参考。</p>
-<p>用&gt;分隔多个选择器，相邻之间为父子关系。匹配最后一个选择器。与后代选择器类似，例子略。</p>
-
+<p>用&gt;分隔多个选择器，相邻之间为父子关系。匹配最后一个选择器。与后代选择器类似，例:</p>
+<xmp>
+    <style>
+        [name^="student"] > * {
+            color:red;
+        }
+    </style>
+    <div style="padding-left: 30px">
+        <div name="studentAlice">
+            <b>Who am I ?</b>
+            <span> I am Alice!</span>
+        </div>
+    </div>
+</xmp>
+<style>
+    [name^="student"] > * {
+        color:red;
+    }
+</style>
+<div style="padding-left: 30px">
+    <div name="studentAlice">
+        <b>Who am I ?</b>
+        <span> I am Alice!</span>
+    </div>
+</div>
 <div class="x">4.兄弟选择器</div>
 <div class="x-x">4.1.相邻兄弟选择器</div>
 <p>见<a href="../c16/c16-3.html#sibling">16.4</a> 简明参考。</p>
