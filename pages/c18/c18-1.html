@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18.1 使用结构性伪类选择器</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">18.1 使用结构性伪类选择器</div>
+<p>结构性伪类选择器能够根据元素在文档中的位置选择元素。例如:empty。它只有一个冒号。它能单独使用也可与其它选择器结合使用，如p:empty。</p>
+
+<div class="x">1.使用根元素选择器</div>
+<p>见<a href="../c16/c16-3.html#root">16.3</a> 简明参考。</p>
+<p>:root选择器匹配文档中的根元素。它总是选择html元素(除非是不规范的文档)，所以使用较少。</p>
+
+<div class="x">2.使用子元素选择器</div>
+<p>使用<i>子元素选择器</i>匹配匹配直接包含在其它元素中的单个元素。</p>
+<ul>
+    <li><a href="../c16/c16-3.html#first-child">:first-child</a> 选择元素的第一个子元素</li>
+    <li><a href="../c16/c16-3.html#last-child">:last-child</a> 选择元素的最后一个子元素</li>
+    <li><a href="../c16/c16-3.html#only-child">:only-child</a> 选择元素的唯一子元素</li>
+    <li><a href="../c16/c16-3.html#only-of-type">:only-of-type</a> 选择元素指定类型的唯一子元素</li>
+</ul>
+<p>无论W3C还是书本的解释都不那么好理解。所以需要代码示例。</p>
+<div class="xx">2.1.使用:first-child</div>
+</body>
+</html>

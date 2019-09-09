@@ -7,6 +7,7 @@
     <style>
         td{
             border-bottom: #bebebe solid 1px;
+            padding: 0.25rem 0 0.25rem 0;
         }
     </style>
     <base href="https://www.w3school.com.cn" target="_blank"/>
@@ -179,13 +180,30 @@
         <td>1</td>
     </tr>
 
-    <tr>
+    <tr id="first-child">
         <td><a href="/cssref/selector_first-child.asp" title="CSS :first-child 选择器">:first-child</a></td>
         <td>p:first-child</td>
         <td>选择属于父元素的第一个子元素的每个 &lt;p&gt; 元素。</td>
         <td>2</td>
     </tr>
-
+    <tr id="last-child">
+        <td><a href="/cssref/selector_last-child.asp" title="CSS :last-child 选择器">:last-child</a></td>
+        <td>p:last-child</td>
+        <td>选择属于其父元素最后一个子元素每个 &lt;p&gt; 元素。</td>
+        <td>3</td>
+    </tr>
+    <tr id="only-child">
+        <td><a href="/cssref/selector_only-child.asp" title="CSS :only-child 选择器">:only-child</a></td>
+        <td>p:only-child</td>
+        <td>选择属于其父元素的唯一子元素的每个 &lt;p&gt; 元素。</td>
+        <td>3</td>
+    </tr>
+    <tr id="only-of-type">
+        <td><a href="/cssref/selector_only-of-type.asp" title="CSS :only-of-type 选择器">:only-of-type</a></td>
+        <td>p:only-of-type</td>
+        <td>选择属于其父元素唯一的 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+        <td>3</td>
+    </tr>
     <tr>
         <td><a href="/cssref/selector_before.asp" title="CSS :before 选择器">:before</a></td>
         <td>p:before</td>
@@ -225,19 +243,9 @@
         <td>3</td>
     </tr>
 
-    <tr>
-        <td><a href="/cssref/selector_only-of-type.asp" title="CSS :only-of-type 选择器">:only-of-type</a></td>
-        <td>p:only-of-type</td>
-        <td>选择属于其父元素唯一的 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
-        <td>3</td>
-    </tr>
 
-    <tr>
-        <td><a href="/cssref/selector_only-child.asp" title="CSS :only-child 选择器">:only-child</a></td>
-        <td>p:only-child</td>
-        <td>选择属于其父元素的唯一子元素的每个 &lt;p&gt; 元素。</td>
-        <td>3</td>
-    </tr>
+
+
 
     <tr>
         <td><a href="/cssref/selector_nth-child.asp" title="CSS :nth-child(n) 选择器">:nth-child(<i>n</i>)</a></td>
@@ -267,14 +275,9 @@
         <td>3</td>
     </tr>
 
-    <tr>
-        <td><a href="/cssref/selector_last-child.asp" title="CSS :last-child 选择器">:last-child</a></td>
-        <td>p:last-child</td>
-        <td>选择属于其父元素最后一个子元素每个 &lt;p&gt; 元素。</td>
-        <td>3</td>
-    </tr>
 
-    <tr>
+
+    <tr id="root">
         <td><a href="/cssref/selector_root.asp" title="CSS :root 选择器">:root</a></td>
         <td>:root</td>
         <td>选择文档的根元素。</td>
