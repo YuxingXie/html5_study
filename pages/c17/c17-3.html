@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17.3 使用伪元素选择器</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">17.3 使用伪元素选择器</div>
+<p><i>伪选择器(pseudo-selector)</i>提供更复杂的功能。它分为<i>伪元素</i>和<i>伪类</i>。</p>
+<p>伪元素其实并不存在。那么它如何选择元素呢？</p>
+<div class="x">1.使用::first-line选择器</div>
+<p>用于选取指定选择器的首行。如果没有指定选择器而单独使用，则表示所有元素的首行。</p>
+<p>见<a href="../c16/c16-3.html#first-line">16.3</a> 简明参考。说明:参考文档中格式为一个冒号，这个稍后会解释。</p>
+<p>示例：</p>
+<xmp>
+    <style>
+        [name="text"]::first-line{
+            background-color: grey;
+            color: white;
+        }
+    </style>
+    <p name="text">
+        WASHINGTON — On the Friday before Labor Day, President Trump gathered top advisers in the Situation Room to consider what could be among the profound decisions of his presidency — a peace plan with the Taliban after 18 years of grinding, bloody war in Afghanistan.
+    </p>
+    <p name="text">
+        The meeting brought to a head a bristling conflict dividing his foreign policy team for months, pitting Secretary of State Mike Pompeo against John R. Bolton, the national security adviser, in a battle for the competing instincts of a president who relishes tough talk but promised to wind down America’s endless wars.
+    </p>
+    <p name="text">
+        As they discussed terms of the agreement, Mr. Pompeo and his negotiator, Zalmay Khalilzad, made the case that it would enable Mr. Trump to begin withdrawing troops while securing a commitment from the Taliban not to shelter terrorists. Mr. Bolton, beaming in by video from Warsaw, where he was visiting, argued that Mr. Trump could keep his campaign pledge to draw down forces without getting in bed with killers swathed in American blood.
+    </p>
+    <p name="text">
+        Mr. Trump made no decision on the spot, but at some point during the meeting the idea was floated to finalize the negotiations in Washington, a prospect that appealed to the president’s penchant for dramatic spectacle. Mr. Trump suggested that he would even invite President Ashraf Ghani of Afghanistan, whose government has not been party to the talks, and get him to sign on.
+    </p>
+</xmp>
+<style>
+    [name="text"]::first-line{
+        background-color: grey;
+        color: white;
+    }
+</style>
+<p name="text">
+    WASHINGTON — On the Friday before Labor Day, President Trump gathered top advisers in the Situation Room to consider what could be among the profound decisions of his presidency — a peace plan with the Taliban after 18 years of grinding, bloody war in Afghanistan.
+</p>
+<p name="text">
+    The meeting brought to a head a bristling conflict dividing his foreign policy team for months, pitting Secretary of State Mike Pompeo against John R. Bolton, the national security adviser, in a battle for the competing instincts of a president who relishes tough talk but promised to wind down America’s endless wars.
+</p>
+<p name="text">
+    As they discussed terms of the agreement, Mr. Pompeo and his negotiator, Zalmay Khalilzad, made the case that it would enable Mr. Trump to begin withdrawing troops while securing a commitment from the Taliban not to shelter terrorists. Mr. Bolton, beaming in by video from Warsaw, where he was visiting, argued that Mr. Trump could keep his campaign pledge to draw down forces without getting in bed with killers swathed in American blood.
+</p>
+<p name="text">
+    Mr. Trump made no decision on the spot, but at some point during the meeting the idea was floated to finalize the negotiations in Washington, a prospect that appealed to the president’s penchant for dramatic spectacle. Mr. Trump suggested that he would even invite President Ashraf Ghani of Afghanistan, whose government has not been party to the talks, and get him to sign on.
+</p>
+<p>现在解释一下一个冒号。两个冒号是CSS3的标准，一个冒号是CSS2的标准。一般说来两个冒号有较好的向后兼容性。</p>
+<div class="x">2.使用::first-letter选择器</div>
+<p>与::first-letter含义不同的地方是它选择元素的第一个字母。</p>
+<p>示例：</p>
+<xmp>
+    <style>
+        [name="content"]::first-letter{
+            background-color: grey;
+            color: white;
+            border: thin black solid;
+            padding: 4px;
+        }
+    </style>
+    <p name="content">MY NAME IS D.J.TRUMP.</p>
+    <p name="content">汉字的first-letter是？</p>
+</xmp>
+<style>
+    [name="content"]::first-letter{
+        background-color: grey;
+        color: white;
+        border: thin black solid;
+        padding: 4px;
+    }
+</style>
+<p name="content">MY NAME IS D.J.TRUMP.</p>
+<p name="content">汉字的first-letter是？</p>
+<p>英文的first-letter是第一个字母，汉字的first-letter就是第一个字。</p>
+
+<div class="x">3.使用:before和:after选择器</div>
+<p>它表示选择器选定元素的前面和后面，一般用来指定前后的内容。</p>
+<p>另外，它能够单独使用吗？</p>
+<xmp>
+    <style>
+        a::before{
+            content: 'Click to visit ';
+            color: green;
+        }
+        a::after{
+            color: red;
+            content: '!';
+        }
+    </style>
+    <a href="#">this page</a>
+</xmp>
+<style>
+    a::before{
+        content: 'Click to visit ';
+        color: green;
+    }
+    a::after{
+        color: red;
+        content: '!';
+    }
+</style>
+<a href="#">this page</a>
+<p>它选择了选定元素的文字的开始或结束处的空白指针的位置到添加的内容的位置的内容，所以可以看到文字的颜色改变了。</p>
+<P>经测试，::before和::after都一个单独使用，表示所有元素的前后位置。但一般不会这么用。</P>
+<p class="important">我曾经在项目中碰到过这个问题，所以很有既视感。</p>
+<div class="x">小结</div>
+<p>伪元素可以一个冒号或二个冒号表示；</p>
+<p>伪元素选择器实际上都可以单独使用，但一般搭配一个选择器使用，放在它的后面；</p>
+</body>
+</html>

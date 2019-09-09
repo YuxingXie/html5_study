@@ -49,17 +49,19 @@
             color: green;
         }
     </style>
-    <div href="flower-a">flower-a</div>
-    <div href="flowera">flowera</div>
-    <div href="flowerA">flowerA</div>
-    <div href="flower">flower</div>
-    <div href="flower rose">flower rose</div>
+    <div style="padding-left: 30px">
+        <div href="flower-a">flower-rose</div>
+        <div href="flowera">flowerrose</div>
+        <div href="flowerA">flowerRose</div>
+        <div href="flower">flower</div>
+        <div href="flower rose">flower rose</div>
 
-    <div name="leaf-a">leaf-a</div>
-    <div name="leafa">leafa</div>
-    <div name="leafA">leafA</div>
-    <div name="leaf">leaf</div>
-    <div name="leaf apple">leaf apple</div>
+        <div name="leaf-a">leaf-apple</div>
+        <div name="leafa">leafapple</div>
+        <div name="leafA">leafApple</div>
+        <div name="leaf">leaf</div>
+        <div name="leaf apple">leaf apple</div>
+    </div>
 </xmp>
 <p>效果:</p>
 <style>
@@ -71,18 +73,56 @@
     }
 </style>
 <div style="padding-left: 30px">
-<div href="flower-a">flower-a</div>
-<div href="flowera">flowera</div>
-<div href="flowerA">flowerA</div>
+<div href="flower-a">flower-rose</div>
+<div href="flowera">flowerrose</div>
+<div href="flowerA">flowerRose</div>
 <div href="flower">flower</div>
 <div href="flower rose">flower rose</div>
 
-<div name="leaf-a">leaf-a</div>
-<div name="leafa">leafa</div>
-<div name="leafA">leafA</div>
+<div name="leaf-a">leaf-apple</div>
+<div name="leafa">leafapple</div>
+<div name="leafA">leafApple</div>
 <div name="leaf">leaf</div>
 <div name="leaf apple">leaf apple</div>
 </div>
 <p>可见[attribute~=value]的包含是包含一个单词，这个单词是单个单词或用空格分隔，烤肉串和驼峰命名都不能认为是一个单词。[attribute*=value]则只要属性值中包含这个字符就可以匹配。</p>
+<p>再看看[attribute|=value]和[attribute^=value]的区别：</p>
+<xmp>
+    <style type="text/css">
+        [id|="student"]{
+            color:blue;
+        }
+        [id^="teacher"]{
+            color:red;
+        }
+    </style>
+    <div style="padding-left: 30px">
+        <div id="student-1">student-1</div>
+        <div id="student1">student1</div>
+        <div id="student">student</div>
+
+        <div id="teacher-1">teacher-1</div>
+        <div id="teacher1">teacher1</div>
+        <div id="teacher">teacher</div>
+    </div>
+</xmp>
+<style type="text/css">
+    [id|="student"]{
+        color:blue;
+    }
+    [id^="teacher"]{
+        color:red;
+    }
+</style>
+<div style="padding-left: 30px">
+    <div id="student-1">student-1</div>
+    <div id="student1">student1</div>
+    <div id="student">student</div>
+
+    <div id="teacher-1">teacher-1</div>
+    <div id="teacher1">teacher1</div>
+    <div id="teacher">teacher</div>
+</div>
+<p>[attribute|=value]表示以某个词汇开始，这个词汇可以是单个单词或者烤肉串形式。[attribute^=value]则只要以这个字符为开头即可。</p>
 </body>
 </html>

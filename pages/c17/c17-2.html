@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17.2 复合选择器</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+
+<div class="title">17.2 复合选择器</div>
+<p>复合选择器由多个基本选择器组合而成。</p>
+<div class="x">1.并集选择器</div>
+<p>见<a href="../c16/c16-3.html#and">16.3</a> 简明参考。</p>
+<p>并集选择器用逗号分隔多个选择器。并集选择器匹配的结果是单个选择器匹配元素的并集。</p>
+<div class="x">2.后代选择器</div>
+<p>见<a href="../c16/c16-3.html#descendant">16.3</a> 简明参考。</p>
+<p>空格分隔多个选择器，相邻之间为前一个包含后一个，匹配最后一个选择器。</p>
+<xmp>
+    <style>
+        div [name^="student"] a[href]{
+            color:red;
+        }
+    </style>
+    <div style="padding-left: 30px">
+        <div name="studentAlice">
+            <span>我是<a href="#">Alice</a></span>
+        </div>
+        <div name="teacherBob">
+            <span>我是<a href="#">Bob</a></span>
+        </div>
+    </div>
+</xmp>
+<style>
+    div [name^="student"] a[href]{
+        color:red;
+    }
+</style>
+<div style="padding-left: 30px">
+    <div name="studentAlice">
+        <span>我是<a href="#">Alice</a></span>
+    </div>
+    <div name="teacherBob">
+        <span>我是<a href="#">Bob</a></span>
+    </div>
+</div>
+
+<div class="x">3.子元素选择器</div>
+<p>见<a href="../c16/c16-3.html#son">16.3</a> 简明参考。</p>
+<p>用&gt;分隔多个选择器，相邻之间为父子关系。匹配最后一个选择器。与后代选择器类似，例子略。</p>
+
+<div class="x">4.兄弟选择器</div>
+<div class="x-x">4.1.相邻兄弟选择器</div>
+<p>见<a href="../c16/c16-3.html#sibling">16.4</a> 简明参考。</p>
+
+<p>相邻兄弟选择器用+分隔多个选择器，相邻之间为兄弟关系，并且后一个元素必须紧跟前一个元素，匹配最后一个选择器。与后代选择器类似，例子略。</p>
+<div class="x-x">4.2.相邻兄弟选择器</div>
+<p>见<a href="../c16/c16-3.html#commonSibling">16.4</a> 简明参考。</p>
+<p>用~分隔，兄弟元素不一定要相邻，但后一个选择器匹配的元素要在前一个选择器匹配元素的后面。例子略。</p>
+</body>
+</html>
