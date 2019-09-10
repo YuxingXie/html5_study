@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18.2 使用UI伪类选择器</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">18.2 使用UI伪类选择器</div>
+<p>UI伪类选择器根据元素状态匹配元素。其中很多是根据表单input元素的属性。</p>
+<ul>
+    <li>:enabled 启用状态</li>
+    <li>:disabled 禁用状态</li>
+    <li>:checked 被选中状态</li>
+    <li>:default 默认状态</li>
+    <li>:valid,:invalid 有效或无效状态</li>
+    <li>:in-range,:out-of-range 指定范围之内或之外</li>
+    <li>:required,:optional 需要或可选状态</li>
+</ul>
+
+<p>一目十行看一下本节。</p>
+<P>input、button都有disabled属性，可用:enabled和:disabled选择器选择。</P>
+<p>input type="radio"或type="checkbox"可用:checked选择器选择。但是没有:not-checked伪类选择器怎么办？需要后面将要讲的否定选择器帮忙。</p>
+<p>:default选择器从一组类似的元素中选择默认元素。如提交按钮总是表单的默认按钮。W3C网站的选择器参考中并没有:default选择器的介绍。</p>
+<p>:valid,:invalid表示表单验证有效或无效的状态的选择器。</p>
+<p>:in-range,:out-of-range一般是数字的大小是否符合。</p>
+<p>:required,:optional一般在input带或不带required属性时。</p>
+</body>
+</html>

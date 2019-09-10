@@ -91,6 +91,9 @@ xmp,code{
 table {
     margin-left: 30px; border-top: #7a7a7a solid 1px; border-bottom: #7a7a7a solid 1px;font-size: small;text-align: center
 }
+th{
+    border-bottom: #bebebe solid 1px
+}
 dfn{
     padding: 0 0.25em;
     font-family: "Andale Mono", monospace;

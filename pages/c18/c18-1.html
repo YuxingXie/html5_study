@@ -285,18 +285,45 @@
 </ul>
 <p>除了表达方式上和first,last等伪类子元素选择器有点差异，多了一个索引(1开始)的参数表示第几个元素，含义比较相类似。</p>
 <p>下面这个例子值得看一下：</p>
+<xmp>
+    <style>
+        [name^="fruit"] > :nth-child(2){
+            color:green;
+        }
+    </style>
+    <div style="padding-left: 30px">
+        <div name="fruitApple">
+            <div>Who am I?</div>
+            <div> I am apple!</div>
+
+        </div>
+        <div name="fruitBanana">
+            <div>Who am I?</div>
+            <div> I am banana!</div>
+
+        </div>
+    </div>
+</xmp>
 <style>
-    [name^="student"] > :nth-child(2){
+
+    [name^="fruit"] > :nth-child(2){
         color:green;
     }
 </style>
 <div style="padding-left: 30px">
-    <div name="studentAlice">
-        I am Alice!
+    <div name="fruitApple">
+        <div>Who am I?</div>
+        <div> I am apple!</div>
+
     </div>
-    <div name="studentBob">
-        I am Bob!
+    <div name="fruitBanana">
+        <div>Who am I?</div>
+        <div> I am banana!</div>
+
     </div>
 </div>
+<p>这里有一个不一样的用法。我们知道伪类选择器要么处于另一个选择器之后，要么单独使用。以:first-child为例，单独使用我们可以认为是*:first-child。所以实际上单独使用的伪类依附在一个隐式的*选择器之上。
+所以我认为伪选择器实际上都有一个主体选择器。上面的例子有点奇怪的地方就是[name^="fruit"] > :nth-child(2)这个写法，从效果来看我认为它是[name^="fruit"] > *:nth-child(2)的简略写法。
+然而这种写法并不能单独使用，只能在和伪类选择器组合的时候才能这样写。</p>
 </body>
 </html>
