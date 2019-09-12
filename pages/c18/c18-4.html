@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>18.4 其它伪类选择器</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">18.4 其它伪类选择器</div>
+<div class="x">1.否定选择器</div>
+<p>对选择器取反的选择器，语法:</p>
+<xmp>:not(选择器)</xmp>
+<div class="x">2.:empty选择器</div>
+<p>:empty选择器匹配没有定义任何子元素的元素。</p>
+<xmp>
+    <style>
+        div:empty{
+            border: red solid thin;
+        }
+    </style>
+    <div style="border: black solid thin">outer div<div></div></div>
+</xmp>
+<style>
+    div:empty{
+        border: red solid thin;
+    }
+</style>
+<div style="border: black solid thin">outer div<div></div></div>
+
+<div class="x">3.:lang选择器</div>
+<xmp>
+    <style>
+        :lang(en){
+            color:red;
+        }
+    </style>
+    <a lang="en-us">en-us</a>
+    <a lang="en-uk">en-uk</a>
+</xmp>
+<style>
+    :lang(en){
+        color:red;
+    }
+</style>
+<a lang="en-us">en-us</a>
+<a lang="en-uk">en-uk</a>
+<p>可以看到，它和[lang|="en"]选择器结果一样。</p>
+<div class="x">4.:target选择器</div>
+<p>表示URL片段标识符指向的元素。一般URL指向一个页面，但带上#id可以指向某个元素，这个被指向的元素会被:target选择。但是不能跨页面选择哦。</p>
+<xmp>
+    <style>
+        :target{
+            border: thin black solid;
+            padding:4px;
+            color:red;
+        }
+    </style>
+    <a href="#a">visit a</a>
+    <a href="#b">visit b</a>
+    <a href="../c16/c16-3.html#target">跨页面</a>
+    <a id="a">本页a</a> | <a id="b">本页b</a>
+</xmp>
+<style>
+    :target{
+        border: thin black solid;
+        padding:4px;
+        color:red;
+    }
+</style>
+<a href="#a">visit a</a>
+<a href="#b">visit b</a>
+<a href="../c16/c16-3.html#target">跨页面</a>
+<a id="a">本页a</a> | <a id="b">本页b</a>
+</body>
+</html>
