@@ -99,6 +99,7 @@
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 160px;border: #bf0000 solid 3px">border-bottom-right-radius: 160px</div>
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 30%;border: #bf0000 solid 3px">border-bottom-right-radius: 30%</div>
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 30% 70%;border: #bf0000 solid 3px">border-bottom-right-radius: 30% 70%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 30% 100px;border: #bf0000 solid 3px">border-bottom-right-radius: 30% 100px</div>
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 70%;border: #bf0000 solid 3px">border-bottom-right-radius: 70%</div>
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80%;border: #bf0000 solid 3px">border-bottom-right-radius: 80%</div>
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 90%;border: #bf0000 solid 3px">border-bottom-right-radius: 90%</div>
@@ -106,13 +107,17 @@
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80px 160px;border: #bf0000 solid 3px">border-bottom-right-radius: 80px 160px</div>
     <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 160px 80px;border: #bf0000 solid 3px">border-bottom-right-radius: 160px 80px</div>
 </div>
-<p>设置一个角的圆角半径时，值可能是：一个长度，一对长度，一个百分比，一对百分比。</p>
-<p>值为一个长度时，表示圆角半径为此值；</p>
-<p>值为一对长度时，如80px 160px，此时表示角为一个椭圆，表示横向半径是80px，纵向半径是160px；</p>
-<p>值为一个百分比值时，假设为10%，此时表示角为一个椭圆，表示横向半径是此容器的宽度*10%，纵向半径是容器高度*10%。</p>
-<p>值为一对百分比值时，假设为10% 20%，此时表示角为一个椭圆，表示横向半径是此容器的宽度*10%，纵向半径是容器高度*20%。</p>
+<p>设置一个角的圆角半径时，值可能是：一个长度，一对长度，一个百分比，一对百分比，数字百分比混合。</p>
+<ul>
+    <li>值为一个长度时，表示圆角半径为此值；</li>
+    <li>值为一对长度时，如80px 160px，此时表示角为一个椭圆，表示横向半径是80px，纵向半径是160px；</li>
+    <li>值为一个百分比值时，假设为10%，此时表示角为一个椭圆，表示横向半径是此容器的宽度*10%，纵向半径是容器高度*10%；</li>
+    <li>值为一对百分比值时，假设为10% 20%，此时表示角为一个椭圆，表示横向半径是此容器的宽度*10%，纵向半径是容器高度*20%；</li>
+    <li>值为数字和百分比混合时，假设为10% 20px，此时表示角为一个椭圆，表示横向半径是此容器的宽度*10%，纵向半径是20px；百分比在后表示横向半径为指定长度，纵向半径为此百分比值。</li>
+
+</ul>
 <p>再研究复杂一点的border-radius，它同时设置四个角的圆角半径。</p>
-<p>我们应该可以设置像设置一个角一样的方法重复设置四次吗？很明显是行不通的，因为一个角可以用一个长度表示，也可以用两个长度表示，如果我们定义四个长度，它到底表示一个角还是两个角呢？这会出现混淆：</p>
+<p>我们可以设置像设置一个角一样的方法重复设置四次吗？很明显是行不通的，因为一个角可以用一个长度或百分比表示，也可以用两个长度或百分比表示，如果我们定义四个长度或百分比，它到底表示一个角还是两个角呢？这会出现混淆：</p>
 <xmp>
     <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 25% 50% 75% 100%">定义四个百分比：25% 50% 75% 100%</div>
     <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 100px 150px 200px 250px">定义四个长度：100px 150px 200px 250px</div>
@@ -121,7 +126,60 @@
     <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 25% 50% 75% 100%">定义四个百分比：25% 50% 75% 100%</div>
     <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 100px 150px 200px 250px">定义四个长度：100px 150px 200px 250px</div>
 </div>
-<p>可见定义四个长度的时候，浏览器认为我们定义了四个圆角，半径分别是我们定义的长度，而不是认为我们定义了两个椭圆角。</p>
-<p>那么我们该如何定义四个椭圆角呢？定义四个百分比当然可以，但如何用指定椭圆半径长度的方式定义呢？</p>
+<p>可见定义四个长度或百分比的时候，浏览器认为我们定义了四个圆角，半径分别是我们定义的长度，而不是认为我们定义了两个椭圆角。</p>
+<p>那么我们该如何定义四个椭圆角的半径呢？定义八个长度？不行：</p>
+<xmp>
+    <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 100px 150px 200px 250px 100px 150px 200px 250px">定义八个长度：100px 150px 200px 250px 100px 150px 200px 250px</div>
+</xmp>
+<div style="padding:100px;border: #bf0000 solid 3px;border-radius: 100px 150px 200px 250px 100px 150px 200px 250px">定义八个长度：100px 150px 200px 250px 100px 150px 200px 250px</div>
+<p>可以看到，没有圆角效果，而且我的IDE告诉我这样写语法是错误的:</p>
+<img src="../../assets/img/border-syntax-error.png"/>
+<p>IDE告诉我这里属性值应该是1到4个长度或百分比，加上可选的用/分割的1-4个长度或百分比(或者值是initial,inherit,unset，revert)。</p>
+<div style="padding-left: 30px">
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px">100px</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px/100px">100px/100px</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px/50px 100px">100px/50px 100px</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px/50px 100px 150px">100px/50px 100px 150px</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px/50px 100px 150px 200px">100px/50px 100px 150px 200px"</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px 150px/200px">100px 150px/200px</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px 150px/50px 100px">100px 150px/50px 100px</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px 150px/50px 100px 150px">100px 150px/50px 100px 150px</div>
+    <div style="padding:100px;margin-top:20px;border: #bf0000 solid 3px;border-radius: 100px 150px/50px 100px 150px 200px">100px 150px/50px 100px 150px 200px</div>
+</div>
+<p>可见border-radius总是设置四个角。着四个角的顺序是<i>top-left > top-right > bottom-right > bottom-left</i>。如果省略 bottom-left，则与 top-right 相同。
+    如果省略 bottom-right，则与 top-left 相同。如果省略 top-right，则与 top-left 相同。所以它总是会设置四个角。</p>
+<p>用"/"分割的写法则表示分割的前半段表示横向半径，后半段表示纵向半径。</p>
+<div class="x">6.将图像用作边框</div>
+<p>使用属性border-image-{someImageProperty}可以设置图片作为边框。{someImageProperty}为：source,slice,width,outset,repeat。或者用一条<a href="../c16/c16-4.html#border-image">border-image</a>的简写方式。</p>
+<p>请记住，这个属性几乎没什么浏览器实现，所以不建议直接使用。但加上各浏览器厂商的前缀如-moz,-o,-webkit等可能会有效。</p>
+<p class="important">关于简写方式，我们很难记住书写的顺序。如果不打算记住它，我们不妨使用某些IDE的智能优化功能，先写成多个属性的形式，让IDE帮我们去优化成简写形式。</p>
+<div class="x-x">6.1.切分图像</div>
+<p>将图像用作边框的关键是切分图像。</p>
+<p>我(不是作者)创建了一个九宫格(excel截图的啦)：</p>
+<img src="../../assets/img/tiles.png"/>
+<xmp>
+    <div style="-moz-border-image: url('../../assets/img/tiles.png') 50/50 round repeat;-o-border-image: url('../../assets/img/tiles.png') 50/50 round repeat;-webkit-border-image:url('../../assets/img/tiles.png') 50/50 round repeat;">image border</div>
+</xmp>
+<style>
+    #i1{
+        margin-bottom:20px;
+        padding: 50px;
+        -moz-border-image: url('../../assets/img/tiles.png') 100/100 stretch;
+        -o-border-image: url('../../assets/img/tiles.png') 100/100 stretch;
+        -webkit-border-image:url('../../assets/img/tiles.png') 100/100 stretch;
+    }
+    #i2{
+        margin-bottom:20px;
+        padding: 50px;
+        -moz-border-image: url('../../assets/img/tiles.png') 0 100 200 200 stretch;
+        -o-border-image: url('../../assets/img/tiles.png') 0 100 200 200 stretch;
+        -webkit-border-image:url('../../assets/img/tiles.png')  0 100 200 200 stretch;
+    }
+</style>
+<div style="padding-left: 30px">
+    <div id="i1">image border 1</div>
+    <div id="i2">image border 2</div>
+</div>
+<p></p>
 </body>
 </html>
