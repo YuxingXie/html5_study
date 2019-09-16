@@ -1,3 +1,6 @@
+body {
+    padding-bottom: 50px;
+}
 .chapter {
     font-weight: bolder;
     font-size: larger;
@@ -35,10 +38,10 @@
 .x {
     font-weight: bold;
     font-size: larger;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-left: 10px;
     padding-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-top:1px slategray solid;
 }
 .x-x {

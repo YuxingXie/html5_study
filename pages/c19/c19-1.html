@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>19.1 应用边框样式</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">19.1 应用边框样式</div>
+<p>简单边框有三个关键属性：<a href="../c16/c16-4.html#border-width">border-width</a>,<a href="../c16/c16-4.html#border-style">border-style</a>,<a href="../c16/c16-4.html#border-color">border-color</a>。</p>
+<p>示例如下：</p>
+<xmp>
+    <style>
+        p{
+            border-width: 5px;
+            border-style: solid;
+            border-color: black;
+        }
+    </style>
+</xmp>
+<div class="x">1.定义边框宽度</div>
+<p>代码:</p>
+<xmp>
+    <div style="padding-left: 30px">
+        <div style="border-width: 1px">border-width: 1px</div>
+        <div style="border-width: 1em">border-width: 1em</div>
+        <div style="border-width: 1cm">border-width: 1cm</div>
+    </div>
+</xmp>
+<p>效果：</p>
+<div style="padding-left: 30px">
+    <div style="border-width: 1px">border-width: 1px</div>
+    <div style="border-width: 1em">border-width: 1em</div>
+    <div style="border-width: 1cm">border-width: 1cm</div>
+</div>
+<p>发现并没有边框。原因见下。</p>
+<div class="x">2.定义边框样式</div>
+<p>border-style定义边框的样式。默认值是none，即没有边框。所以上面的代码没有边框，改写如下：</p>
+<xmp>
+    <div style="padding-left: 30px">
+        <span style="border-width: 10px;border-style: solid;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">solid</span>
+        <span style="border-width: 10px;border-style: dotted;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">dotted</span>
+        <span style="border-width: 10px;border-style: dashed;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block"> dashed</span>
+        <span style="border-width: 10px;border-style:double;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block"> double</span>
+        <span style="border-width: 10px;border-style:groove;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">groove</span>
+        <span style="border-width: 10px;border-style:inset;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">inset</span>
+        <span style="border-width: 10px;border-style:outset;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">outset</span>
+        <span style="border-width: 10px;border-style:ridge;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">ridge</span>
+    </div>
+</xmp>
+<div style="padding-left: 30px">
+    <span style="border-width: 10px;border-style: solid;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">solid</span>
+    <span style="border-width: 10px;border-style: dotted;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">dotted</span>
+    <span style="border-width: 10px;border-style: dashed;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block"> dashed</span>
+    <span style="border-width: 10px;border-style:double;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block"> double</span>
+    <span style="border-width: 10px;border-style:groove;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">groove</span>
+    <span style="border-width: 10px;border-style:inset;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">inset</span>
+    <span style="border-width: 10px;border-style:outset;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">outset</span>
+    <span style="border-width: 10px;border-style:ridge;margin-bottom: 8px;margin-left: 20px;padding: 10px;display: inline-block">ridge</span>
+</div>
+<p>像double,groove,inset,outset,ridge必须要有一定的边框宽度才能看出效果。</p>
+<div class="x">3.为一条边应用边框样式</div>
+<p>border-{position}-width,border-{position}-style,border-{position}-color,<i>{position}用top,bottom,left,right取代</i>。</p>
+<div class="x">4.使用border简写属性</div>
+<p>使用border或border-{position}属性，在一行中指定宽度，样式和颜色。如：</p>
+<xmp>
+    <span style="border:10px solid brown">10px solid brown</span>
+    <span style="border-bottom:10px dotted darkgreen">10px dotted darkgreen</span>
+</xmp>
+<p>效果：</p>
+<div style="padding-left: 30px">
+    <span style="border:10px solid brown">10px solid brown</span>
+    <span style="border-bottom:10px dotted darkgreen">10px dotted darkgreen</span>
+</div>
+
+<div class="x">5.创建圆角边框</div>
+<p>使用<a href="../c16/c16-4.html#border-radius">border-radius</a>或border-{position}-radius属性，指定圆角半径。{position}用top-left,top-right,bottom-left,bottom-right取代。</p>
+<p>参考点<a href="https://www.w3school.com.cn/cssref/pr_border-radius.asp">这里</a>！</p>
+<p>先从简单的设置一个角的圆角说起：</p>
+<p>代码：</p>
+<xmp>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 40px;border: #bf0000 solid 3px">border-bottom-right-radius: 40px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80px;border: #bf0000 solid 3px">border-bottom-right-radius: 80px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 120px;border: #bf0000 solid 3px">border-bottom-right-radius: 120px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 160px;border: #bf0000 solid 3px">border-bottom-right-radius: 160px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 30%;border: #bf0000 solid 3px">border-bottom-right-radius: 30%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 70%;border: #bf0000 solid 3px">border-bottom-right-radius: 70%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80%;border: #bf0000 solid 3px">border-bottom-right-radius: 80%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 90%;border: #bf0000 solid 3px">border-bottom-right-radius: 90%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 100%;border: #bf0000 solid 3px">border-bottom-right-radius: 100%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80px 160px;border: #bf0000 solid 3px">border-bottom-right-radius: 80px 160px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 160px 80px;border: #bf0000 solid 3px">border-bottom-right-radius: 160px 80px</div>
+</xmp>
+<p>效果：</p>
+<div style="padding-left: 30px">
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 40px;border: #bf0000 solid 3px">border-bottom-right-radius: 40px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80px;border: #bf0000 solid 3px">border-bottom-right-radius: 80px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 120px;border: #bf0000 solid 3px">border-bottom-right-radius: 120px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 160px;border: #bf0000 solid 3px">border-bottom-right-radius: 160px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 30%;border: #bf0000 solid 3px">border-bottom-right-radius: 30%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 30% 70%;border: #bf0000 solid 3px">border-bottom-right-radius: 30% 70%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 70%;border: #bf0000 solid 3px">border-bottom-right-radius: 70%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80%;border: #bf0000 solid 3px">border-bottom-right-radius: 80%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 90%;border: #bf0000 solid 3px">border-bottom-right-radius: 90%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 100%;border: #bf0000 solid 3px">border-bottom-right-radius: 100%</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 80px 160px;border: #bf0000 solid 3px">border-bottom-right-radius: 80px 160px</div>
+    <div style="padding:100px;margin-top:10px;border-bottom-right-radius: 160px 80px;border: #bf0000 solid 3px">border-bottom-right-radius: 160px 80px</div>
+</div>
+<p>设置一个角的圆角半径时，值可能是：一个长度，一对长度，一个百分比，一对百分比。</p>
+<p>值为一个长度时，表示圆角半径为此值；</p>
+<p>值为一对长度时，如80px 160px，此时表示角为一个椭圆，表示横向半径是80px，纵向半径是160px；</p>
+<p>值为一个百分比值时，假设为10%，此时表示角为一个椭圆，表示横向半径是此容器的宽度*10%，纵向半径是容器高度*10%。</p>
+<p>值为一对百分比值时，假设为10% 20%，此时表示角为一个椭圆，表示横向半径是此容器的宽度*10%，纵向半径是容器高度*20%。</p>
+<p>再研究复杂一点的border-radius，它同时设置四个角的圆角半径。</p>
+<p>我们应该可以设置像设置一个角一样的方法重复设置四次吗？很明显是行不通的，因为一个角可以用一个长度表示，也可以用两个长度表示，如果我们定义四个长度，它到底表示一个角还是两个角呢？这会出现混淆：</p>
+<xmp>
+    <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 25% 50% 75% 100%">定义四个百分比：25% 50% 75% 100%</div>
+    <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 100px 150px 200px 250px">定义四个长度：100px 150px 200px 250px</div>
+</xmp>
+<div style="padding-left: 30px">
+    <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 25% 50% 75% 100%">定义四个百分比：25% 50% 75% 100%</div>
+    <div style="padding:100px;border: #bf0000 solid 3px;border-radius: 100px 150px 200px 250px">定义四个长度：100px 150px 200px 250px</div>
+</div>
+<p>可见定义四个长度的时候，浏览器认为我们定义了四个圆角，半径分别是我们定义的长度，而不是认为我们定义了两个椭圆角。</p>
+<p>那么我们该如何定义四个椭圆角呢？定义四个百分比当然可以，但如何用指定椭圆半径长度的方式定义呢？</p>
+</body>
+</html>
