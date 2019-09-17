@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>19.2 设置元素的背景</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+
+<div class="title">19.2 设置元素的背景</div>
+<p>参考<a href="../c16/c16-4.html#background">这里</a>。</p>
+<div class="x">1.设置背景颜色和图像、尺寸</div>
+<p>使用background-{aProperty}设置元素背景，{aProperty}可能是：color,image,repeat,size,position,attachment,clip,orign。当然也有简写的方式background。</p>
+<xmp>
+    <style>
+        #bg1{
+            border:solid red 1px;
+            padding: 128px;
+            background-image: url('../../assets/img/x-green-column.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #bg2{
+            margin-top: 20px;
+            border:solid green 1px;
+            padding: 128px;
+            background-image: url('../../assets/img/011.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    </style>
+    <div id ="bg1"></div>
+    <div id ="bg2"></div>
+</xmp>
+<style>
+    #bg1{
+        border:solid red 1px;
+        padding: 128px;
+        background-image: url('../../assets/img/x-green-column.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #bg2{
+        margin-top: 20px;
+        border:solid green 1px;
+        padding: 128px;
+        background-image: url('../../assets/img/011.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+</style>
+<div id ="bg1"></div>
+<div id ="bg2"></div>
+<p>如果元素没有内容，也没有padding，那么背景图不会显示，可见padding部分也算是背景的一部分。</p>
+<p>background-repeat的值 round、space和repeat都是水平和垂直向重复图片，round和space不会截断图片，space是采用添加空格的方式，round是调整图片大小方式;</p>
+<p>背景图似乎不会把容器撑大，如果背景图大过容器，只会显示部分背景图；</p>
+<p>background-size的值contain和cover会让图片等比缩放，contain保证图片完全显示在容器内但可能不能覆盖容器，cover则肯定覆盖容器但可能部分被隐藏；</p>
+<p>要让图片覆盖容器又完全显示，可以使用background-size:100% 100%指定背景图高宽和容器相等。</p>
+<div class="x">2.设置背景图像位置</div>
+<p>使用background-position设置背景图像的位置。其值可以是top,left,right,bottom,center,也可以是一对长度值或百分比值，表示背景图片的起始位置。</p>
+<xmp>
+    <style>
+        #bg3{
+            padding:100px;
+            border:black solid 1px;
+            background: url('../../assets/img/x-green-column.png') no-repeat 10% 10%;
+        }
+    </style>
+    <div style="border:solid 1px black;padding: 20px 20px 20px 30px">
+        <div id="bg3"></div>
+    </div>
+</xmp>
+<style>
+    #bg3{
+        padding:100px;
+        border:black solid 1px;
+        background: url('../../assets/img/x-green-column.png') no-repeat 10% 10%;
+    }
+</style>
+<div style="border:solid 1px black;padding: 20px 20px 20px 30px">
+    <div id="bg3"></div>
+</div>
+<p>如果出现背景图重复如repeat，round,space，都会使指定的位置失效，repeat-x会使起始的横轴位置失效，repeat-y会使起始的纵轴位置失效。</p>
+<div class="x">3 设置元素的背景附着方式</div>
+<p>使用background-attachment属性设置。值有：fixed,local,scroll。</p>
+<p>只有在出现滚动条的地方这个设置才有意义。</p>
+<xmp>
+    <style>
+        .with-bg{
+            display:inline-block;width:400px;height:400px;overflow:scroll;
+            background: url('../../assets/img/011.jpg') no-repeat;background-size: 100% 100%
+        }
+        .scroll{
+            background-attachment: scroll;
+        }
+        .fixed{
+            background-attachment: fixed;
+        }
+        .local{
+            background-attachment: local;
+        }
+
+    </style>
+    <div class="with-bg scroll">
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+        <p>scroll</p>
+    </div>
+    <div class="with-bg local">
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+        <p>local</p>
+    </div>
+    <div class="with-bg fixed">
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+        <p>fixed,即便整个网页滚动我也不动</p>
+    </div>
+</xmp>
+<style>
+    .with-bg{
+        display:inline-block;width:400px;height:400px;overflow:scroll;
+        background: url('../../assets/img/011.jpg') no-repeat;background-size: 100% 100%
+    }
+    .scroll{
+        background-attachment: scroll;
+    }
+    .fixed{
+        background-attachment: fixed;
+    }
+    .local{
+        background-attachment: local;
+    }
+
+</style>
+<div class="with-bg scroll">
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+    <p>scroll</p>
+</div>
+<div class="with-bg local">
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+    <p>local</p>
+</div>
+<div class="with-bg fixed">
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+    <p>fixed,即便整个网页滚动我也不动</p>
+</div>
+<div class="x">4.设置背景图像的开始位置和裁剪样式</div>
+<p>前面我们研究得到一个结论，如果一个容器指定了padding,那么背景图会在padding内显示，这是背景是从边框左上角开始的。其实我们还可以用其它方式指定它显示的开始位置。</p>
+<p>这个属性就是background-origin。它的值有:border-box,padding-box,content-box</p>
+<xmp>
+    <style>
+        .double-border{
+            border:darkred double 20px;background-image: url('../../assets/img/011.jpg');background-size: 40px 40px;margin-top: 20px;
+        }
+        .border-box{
+            background-origin: border-box;
+        }
+        .padding-box{
+            background-origin: padding-box;
+            padding:20px;
+        }
+        .content-box{
+            background-origin: content-box;
+        }
+    </style>
+    <div class="double-border border-box">border-box,背景图片从边框外侧开始</div>
+    <div class="double-border padding-box">padding-box，背景图片从外边距外侧开始</div>
+    <div class="double-border content-box">content-box，背景图片从内容位置开始</div>
+</xmp>
+<style>
+    .double-border{
+        border:darkred double 20px;background-image: url('../../assets/img/011.jpg');background-size: 40px 40px;margin-top: 20px;
+    }
+    .border-box{
+        background-origin: border-box;
+    }
+    .padding-box{
+        background-origin: padding-box;
+        padding:20px;
+    }
+    .content-box{
+        background-origin: content-box;
+    }
+</style>
+<div class="double-border border-box">border-box,背景图片从边框外侧开始</div>
+<div class="double-border padding-box">padding-box，背景图片从外边距外侧开始</div>
+<div class="double-border content-box">content-box，背景图片从内容位置开始</div>
+
+<p>另一个属性和background-origin具有同样的值，它就是background-clip，表示裁剪的部分。只有裁剪的部分显示，剩下的不显示。</p>
+
+<style>
+    .double-border{
+        border:darkred double 20px;background-image: url('../../assets/img/011.jpg');background-size: 40px 40px;margin-top: 20px;
+        padding:20px;
+    }
+    .clip-border-box{
+        background-clip: border-box;
+    }
+    .clip-padding-box{
+        background-clip: padding-box;
+    }
+    .clip-content-box{
+        background-clip: content-box;
+    }
+</style>
+<div class="double-border clip-border-box">裁剪border-box,背景图片从边框外侧开始裁剪，其实什么都没剪掉</div>
+<div class="double-border clip-padding-box">裁剪padding-box，背景图片从外边距外侧开始裁剪，所以border内部没有背景了</div>
+<div class="double-border clip-content-box">裁剪content-box，背景图片从内容位置开始,所以padding中的背景没有了</div>
+
+</body>
+</html>

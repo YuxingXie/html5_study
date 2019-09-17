@@ -158,28 +158,57 @@
 <p>我(不是作者)创建了一个九宫格(excel截图的啦)：</p>
 <img src="../../assets/img/tiles.png"/>
 <xmp>
-    <div style="-moz-border-image: url('../../assets/img/tiles.png') 50/50 round repeat;-o-border-image: url('../../assets/img/tiles.png') 50/50 round repeat;-webkit-border-image:url('../../assets/img/tiles.png') 50/50 round repeat;">image border</div>
+    <style>
+        #i1{
+            margin-bottom:20px;
+            padding:100px;
+            border:100px solid transparent;
+            -moz-border-image: url('../../assets/img/tiles.png') 100/100 stretch;
+            -o-border-image: url('../../assets/img/tiles.png') 100/100 stretch;
+            -webkit-border-image:url('../../assets/img/tiles.png') 100/100 stretch;
+        }
+        #i2{
+            margin-bottom:20px;
+            padding:100px;
+            border:100px solid;
+            -moz-border-image: url('../../assets/img/tiles.png') 100 stretch;
+            -o-border-image: url('../../assets/img/tiles.png') 100 stretch;
+            -webkit-border-image:url('../../assets/img/tiles.png')  100 repeat;
+        }
+    </style>
+    <div style="padding-left: 30px">
+        <div id="i1">image border 1</div>
+        <div id="i2">image border 2</div>
+    </div>
 </xmp>
 <style>
     #i1{
         margin-bottom:20px;
-        padding: 50px;
+        padding:100px;
+        border:100px solid transparent;
         -moz-border-image: url('../../assets/img/tiles.png') 100/100 stretch;
         -o-border-image: url('../../assets/img/tiles.png') 100/100 stretch;
         -webkit-border-image:url('../../assets/img/tiles.png') 100/100 stretch;
     }
     #i2{
         margin-bottom:20px;
-        padding: 50px;
-        -moz-border-image: url('../../assets/img/tiles.png') 0 100 200 200 stretch;
-        -o-border-image: url('../../assets/img/tiles.png') 0 100 200 200 stretch;
-        -webkit-border-image:url('../../assets/img/tiles.png')  0 100 200 200 stretch;
+        padding:100px;
+        border:100px solid;
+        -moz-border-image: url('../../assets/img/tiles.png') 100 stretch;
+        -o-border-image: url('../../assets/img/tiles.png') 100 stretch;
+        -webkit-border-image:url('../../assets/img/tiles.png')  100 repeat;
     }
 </style>
 <div style="padding-left: 30px">
     <div id="i1">image border 1</div>
     <div id="i2">image border 2</div>
 </div>
-<p></p>
+<p>经研究得出：</p>
+<ul>
+    <li>可以用切瓷砖然后铺瓷砖类比，用四刀切出九块小瓷砖，完整的描述这四刀的下刀位置是：100 100 100 100/100 100 100 100。"/"左侧表示上、右、下、左四个边向横轴的偏移量，右侧表示上、右、下、左四个边向纵轴的偏移量；</li>
+    <li>100 100 100 100/100 100 100 100实际上可以简化为一个100，简化的原则和前面研究过的border-radius的设置类似；</li>
+    <li>必须设置border宽度和样式，否则切片无法放入边框中；</li>
+    <li>九块小瓷砖的中间一块其实也被镶嵌到了内容中，作者的图片因为中间这块是透明的，所以看似没有被帖进去，而我的图片第五块是被镶嵌进去了的。</li>
+</ul>
 </body>
 </html>
