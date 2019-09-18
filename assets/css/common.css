@@ -66,8 +66,9 @@ p{
 }
 
 li{
-    color: #853706;
+    color: #c03e06;
     font-size: smaller;
+    padding-bottom: 0.25rem;
 }
 .title{
     font-size: xx-large;

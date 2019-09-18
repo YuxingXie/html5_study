@@ -7,7 +7,130 @@
 </head>
 <body>
 <div class="title">20.6 设置元素的盒类型</div>
-<p><a href="../c16/c16-4.html#display">display</a>控制元素的可见性。值有三个：collapse(不可见，不占据空间),hidden(不可见，占据空间),visible(可见)。</p>
-<p>collapse值只能用到表相关的元素，如tr、td。Chrome根本不支持collapse值。这个属性还是慎重使用的好。</p>
+<p>display属性提供了一种改变元素盒类型的方式。允许的值有很多，会一一介绍。</p>
+<div class="x">1.认识块级元素</div>
+<p>使用display:block将元素显示为块级元素。</p>
+<p>块级元素独霸一行。</p>
+<p>块级元素能接受宽高，如果不设置宽度，那么宽度将默认变为父级的100%。</p>
+<div class="x">2.认识行内元素</div>
+<p>使用display:inline将元素显示为块级元素。</p>
+<p>与其他行内元素并排。</p>
+<p>不能设置宽高，默认的宽度就是文字的宽度。</p>
+<xmp>
+    <style>
+        .inline{
+            display: inline;
+            border:green solid 1px;
+            padding:15px;
+            margin: 30px;
+            color:red;
+            width:2000px;/*width无效*/
+        }
+        .inline-block{
+            display: inline-block;
+            border:green solid 1px;
+            padding:15px;
+            margin: 30px;
+            color:red;
+            width:2000px;/*width无效*/
+        }
+        .block{
+            display:block;
+            border:black solid 1px;
+        }
+    </style>
+    <div class="block">
+        块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+        块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+        <div class="inline">行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+            行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+            行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+        </div>
+        块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+    </div>
+</xmp>
+<style>
+    .inline{
+        display: inline;
+        border:green solid 1px;
+        padding:15px;
+        margin: 30px;
+        color:red;
+        width:2000px;/*width无效*/
+    }
+    .inline-block{
+        display: inline-block;
+        border:green solid 1px;
+        padding:15px;
+        margin: 30px;
+        color:red;
+        width:200px;
+    }
+    .block{
+        display:block;
+        border:black solid 1px;
+    }
+</style>
+<div class="block">
+    块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+    块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+    <div class="inline">行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+        行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+        行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+    </div>
+    块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+</div>
+<p>如果使用chrome浏览器可以看到，行内元素设置的padding并没有占据页面的空间，类似于一种溢出效果。margin似乎仅在水平方向有效。这与书上的例子似乎不一样,作者使用的是IE浏览器，应该是与不同浏览器的解释有关。</p>
+<div class="x">3.认识行内-块级元素</div>
+<p>使用display:block-block将元素显示为块级元素。</p>
+<p>把上面例子中的class="inline"改为class="inline-block"效果如下：</p>
+<div class="block">
+    块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+    块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+    <div class="inline-block">行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+        行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+        行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内行内
+    </div>
+    块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块块
+</div>
+<p>似乎除了不独占一行，其它特性和块级元素类似，padding,margin，width都表现正常。</p>
+<div class="x">4.认识插入元素</div>
+<p>使用display:run-in将元素显示为插入元素。其盒子类型取决于周围元素。通常浏览器需要评估一下三种情况，以确定插入框的特性：</p>
+<ul>
+    <li>如果插入元素包含一个display为block的元素，那么插入元素就是块级元素；</li>
+    <li>如果插入元素的相邻兄弟元素是块级元素，那么插入元素就是兄弟元素中的第一个行内元素；</li>
+    <li>其他情况下，插入元素均作为块级元素对待。</li>
+</ul>
+<p>验证一下：</p>
+<xmp>
+    <style>
+        .run-in{
+            display: run-in;
+            border:2px solid red;
+        }
+    </style>
+
+    <div>
+        <span> span sibling of run-in</span>
+        <div class="run-in">run-in</div>
+        <span> span sibling of run-in</span>
+    </div>
+</xmp>
+<style>
+    .run-in{
+        display: run-in;
+        border:2px solid red;
+    }
+</style>
+
+<div>
+    <span> span sibling of run-in</span>
+    <div class="run-in">run-in</div>
+    <span> span sibling of run-in</span>
+</div>
+<div class="important">我验证的结果是：跟作者说的完全不一样！作者笔误？印刷错误？或者又是浏览器差异？这个规则似乎很有玄机，而且不是所有浏览器都支持这个属性值，所以暂不研究。</div>
+
+<div class="x">5.隐藏元素</div>
+<p>display:none,隐藏元素且不占空间。</p>
 </body>
 </html>
