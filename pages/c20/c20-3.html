@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20.3 控制元素的尺寸</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">20.3 控制元素的尺寸</div>
+<p>参考<a href="../c16/c16-4.html#dimension">这里</a> 。</p>
+<p>box-sizing指定设置指定的尺寸应用到元素盒子的哪个部分，值有content-box,padding-box,border-box,margin-box。这个属性看起来很有用。</p>
+<p class="important">不知道是不是作者笔误，经测试boxing-sizing并没有margin-box这个属性值。</p>
+<p>浏览器默认的元素高宽、最大最小高宽都是auto。我们可以使用尺寸，百分比覆盖它。</p>
+<p>当为百分比时，这个值表示它的高宽是其包含块(父元素)的百分之多少。下面这张可爱宝宝图片的高度超过了它的包含块高度(如果你的浏览器不是被缩得很小的话)，连文字都被挤出去了。这个现象叫<i>溢出</i>。
+    而更有意思的是紧接着图片包含块的另一个块中的文字却覆盖在了图片上，说明溢出的部分没有占用实际空间。</p>
+<xmp>
+    <style>
+        .parent{
+            margin-left: 30px;
+            border: black solid 3px;
+            height:200px;
+            width:40%;
+        }
+        .sibling{
+            margin-left: 25px;border:1px solid red;
+        }
+        .img1{
+            width:100%;
+        }
+    </style>
+    <div class="parent">
+        <img class="img1" src="../../assets/img/011.jpg"/>
+        this is a cute baby!
+    </div>
+    <div class="sibling">我在盒子外！</div>
+</xmp>
+<style>
+    .parent{
+        margin-left: 30px;
+        border: black solid 3px;
+        height:200px;
+        width:40%;
+    }
+    .sibling{
+        margin-left: 25px;border:1px solid red;
+    }
+    .img1{
+        width:100%;
+    }
+</style>
+<div class="parent">
+    <img class="img1" src="../../assets/img/011.jpg"/>
+    this is a cute baby!
+</div>
+<div class="sibling">我在盒子外！</div>
+
+<div style="margin-top: 400px">
+    <!--因为前面的内容出现了图片溢出，这里不得不放一个盒子让后面的内容不覆盖在图片上-->
+</div>
+<div class="x">1.设置一定尺寸的盒子</div>
+<p>这里主要讲的是<a href="../c16/c16-4.html#box-sizing">box-sizing</a>属性。</p>
+<p>现在设计一个200px宽的盒子，它里面并排放两个100px宽的盒子：</p>
+<xmp>
+    <style>
+        .half{
+            width:100px;
+            border:1px solid green;
+            display: inline-block;
+            /*box-sizing: border-box;*/
+        }
+        .full{
+            width: 200px;
+            border:1px solid red;
+            padding:0;
+        }
+    </style>
+    <div class="full"><div class="half">a</div><div class="half">b</div></div>
+</xmp>
+<style>
+    .half{
+        width:100px;
+        border:1px solid green;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+    .full{
+        width: 200px;
+        border:1px solid red;
+        padding:0;
+        box-sizing: content-box;
+    }
+</style>
+<div class="full"><div class="half">a</div><div class="half">b</div></div>
+<p class="important">上面的代码为什么没有换行：因为换行会导致出现空格，一行无法放下两个盒子。</p>
+<p>我们发现两个盒子并没有并排，原因是他们有一个1px的边框，所以他们实际宽度是101px，所以两个盒子换行了。去掉box-sizing: border-box这段注释后，这表示宽度应该计算边框。这样盒子就在一行了。</p>
+<p>box-sizin并没有margin-box这个值。所以如果盒子出现margin，并没有办法解决这个问题。</p>
+<p>box-sizing默认值是content-box。</p>
+<div class="x">2.设置最小和最大尺寸</div>
+<p>略过</p>
+
+</body>
+</html>
