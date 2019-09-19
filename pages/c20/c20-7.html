@@ -7,6 +7,157 @@
 </head>
 <body>
 <div class="title">20.7 创建浮动盒</div>
+<p>使用float属性创建浮动盒。浮动和会将元素的左边界或右边界移动到包含块或另一个浮动盒的边界。</p>
+<p>书中的例子很好的解释了浮动盒的概念，但这些研究是不够的。看下面的例子(测试表明在safari,chrome,firefox下表现一致)：</p>
+<xmp>
+    <style>
+        .float-left{
+            float:left;
+            border:1px solid black;
+            padding:3px;
+            margin:3px;
+            color:green;
+        }
+        .float-right{
+            float:right;
+            border:1px solid black;
+            padding:3px;
+            margin:3px;
+            color:blue;
+        }
+        .outer{
+            border:1px solid red;padding: 5px;margin-top:50px;
+        }
+    </style>
+    <div class="outer" id="1st">
+        <div class="float-left">i am float left</div>
+        <span class="float-left">i am float left too</span>
+    </div>
+    <div class="outer" id="2nd">
+        <span> i am 1st span before float</span>
+        <div> i am common div before float</div>
+        <span> i am 2nd span before float</span>
+        <span> i am 3rd span before float</span>
+        <div class="float-left">i am float left</div>
+        <span class="float-left">i am float left too</span>
+    </div>
+    <div class="outer" id="3rd">
+        <span> i am a common span before float</span>
+        <div class="float-left">i am float left</div>
+        <span class="float-left">i am float left too</span>
+    </div>
+    <div class="outer" id="4th">
+        <div class="float-left">i am float left</div>
+        <div class="float-left">i am float left too</div>
+        <div>i am a common div after float</div>
+    </div>
+    <div class="outer" style="width: 30%;" id="5th">
+        <div class="float-left">i am float left</div>
+        <div class="float-left">i am float left too</div>
+        <div>i am a common div with many content,see where i am?</div>
+    </div>
+    <div class="outer" id="6th">
+        <div class="float-right">i am float right</div>
+        <span class="float-right">i am float right too</span>
+    </div>
+    <div class="outer" id="7th">
+        <div> i am a common div before float</div>
+        <div> i am another common div  before float</div>
+        <div class="float-right">i am float right</div>
+        <span class="float-right">i am float right too</span>
+    </div>
+    <div class="outer" id="8th">
+        <div class="float-right">i am float right</div>
+        <span class="float-right">i am float right too</span>
+        <div>i am a common div after float content</div>
+        <div>i am another common div after float content</div>
+    </div>
+</xmp>
+<style>
+    .float-left{
+        float:left;
+        border:1px solid black;
+        padding:3px;
+        margin:3px;
+        color:green;
+    }
+    .float-right{
+        float:right;
+        border:1px solid black;
+        padding:3px;
+        margin:3px;
+        color:blue;
+    }
+    .outer{
+        border:1px solid red;padding: 5px;margin-top:50px;
+    }
+</style>
+<div class="outer" id="1st">
+    <div class="float-left">i am float left</div>
+    <span class="float-left">i am float left too</span>
+</div>
+<div class="outer" id="2nd">
+    <span> i am 1st span before float</span>
+    <div> i am common div before float</div>
+    <span> i am 2nd span before float</span>
+    <span> i am 3rd span before float</span>
+    <div class="float-left">i am float left</div>
+    <span class="float-left">i am float left too</span>
+</div>
+<div class="outer" id="3rd">
+    <span> i am a common span before float</span>
+    <div class="float-left">i am float left</div>
+    <span class="float-left">i am float left too</span>
+</div>
+<div class="outer" id="4th">
+    <div class="float-left">i am float left</div>
+    <div class="float-left">i am float left too</div>
+    <div>i am a common div after float</div>
+</div>
+<div class="outer" style="width: 30%;" id="5th">
+    <div class="float-left">i am float left</div>
+    <div class="float-left">i am float left too</div>
+    <div>i am a common div with many content,see where i am?</div>
+</div>
+<div class="outer" id="6th">
+    <div class="float-right">i am float right</div>
+    <span class="float-right">i am float right too</span>
+</div>
+<div class="outer" id="7th">
+    <div> i am a common div before float</div>
+    <div> i am another common div  before float</div>
+    <div class="float-right">i am float right</div>
+    <span class="float-right">i am float right too</span>
+</div>
+<div class="outer" id="8th">
+    <div class="float-right">i am float right</div>
+    <span class="float-right">i am float right too</span>
+    <div>i am a common div after float content</div>
+    <div>i am another common div after float content</div>
+</div>
 
+
+<p>上面例子六个盒子(.outer)中，前面5个是左浮动，后面三个是右浮动,宽度足够在一行容纳所有内容。第8个盒子比较窄不能在一行放下所有内容。我根据观察得出了几点结论：</p>
+<p></p>
+<p>如果在一个包含块中有若干浮动盒和普通内容，可以总结出几点：</p>
+<p>1：左浮动会让浮动盒的左边界往左边靠近包含块或上一个浮动盒，在包含块有其它内容的情况下，浮动盒会插队排到其它内容行内元素的前面，直到碰到一个块级元素，就会排在这个块级元素的下方。这是根据第二个盒子得出的结论。</p>
+<p>2:缩放浏览器，看看第5个盒子的变化。我们看到，当浏览器缩得比较小在一行容不下两个浮动盒子的时候，第二个浮动盒换行了，所以浮动盒的盒模型"看上去"像是一个行内块，但看它右侧的文字却又不在一行，所以它并不完全像行内块。
+我们看到包含块内浮动盒以外的其它空间可能是一个不规则的形状，其它内容在这些不规则形状内排列。</p>
+<p>3：当包含块内除了浮动盒外没有其它内容时，我们发现浮动盒并没有把包含块撑开。</p>
+
+<div class="x">阻止浮动元素堆叠</div>
+<p>常见的概念，因为没有研究，所以一直没弄懂。其实经研究发现非常简单，简单到我连栗子都不想煮了。</p>
+<p>clear属性可以指定浮动元素的一个边界或者两个边界不能挨着另一个浮动元素。值包括：left,right,both,none。</p>
+<p>当一个浮动元素想挨着另一个浮动元素，却发现另一个浮动元素设置了clear，浏览器会怎么办呢？答案是把它移到下一行。</p>
+<p>如果我们把包含块设置clear，会阻止浮动盒子靠拢它吗？这似乎像一个悖论。我们看看代码和效果：</p>
+<xmp>
+    <div class="outer" style="clear: right;width:30%;height: 40px;margin-bottom: 50px;">
+        <div class="float-right">float right</div>
+    </div>
+</xmp>
+<div class="outer" style="clear: right;width:30%;height: 40px;margin-bottom: 50px;">
+    <div class="float-right">float right</div>
+</div>
+<p>不用说，浮动盒子还是靠右边浮动了。可见，给包含块设置clear是没有意义的事。</p>
 </body>
 </html>
