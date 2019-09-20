@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<style>
+    .container{
+        border:red 1px solid;
+        width:35%;
+        padding: 2px;
+        margin: 80px 3px;
+    }
+    .green-border{
+        border: green solid 1px;
+    }
+    .height80{
+        height: 80px;
+    }
+    .absolute{
+        position:absolute;
+    }
+    .static{
+        position: static;
+    }
+    .relative{
+        position: relative;
+    }
+    .fixed{
+        position: fixed;
+    }
+    .left100{
+        left: 100px;
+    }
+    .left400{
+        left:400px;
+    }
+    .left600{
+        left:600px;
+    }
+    .right200{
+        right: 200px;
+    }
+
+    .top100{
+        top:100px;
+    }
+    .top200{
+        top:200px;
+    }
+</style>
+<div style="height:500px;" class="green-border">500px高的空白区</div>
+<div class="container">
+    <span>盒子1</span>
+    <div class="absolute left600 right200 top200 green-border">
+        1:absolute left600 right200 top200
+    </div>
+</div>
+<div class="container">
+    <span>盒子2</span>
+    <div class="fixed left600 right200 top100 green-border">
+        2:fixed left600 right200 top100
+    </div>
+</div>
+<div class="container">
+    <span>盒子3</span>
+    <div class="relative right200 left400 top200 green-border height80">
+        3:relative right200 left400 top200
+    </div>
+</div>
+<div class="container">
+    <span>盒子4</span>
+    <div class="static left100 right200 top200 green-border">
+        4:static left100 right200 top200
+    </div>
+</div>
+<div class="container">
+    <span>盒子5</span>
+    <div class="absolute green-border">
+        5:absolute不指定偏移
+    </div>
+</div>
+<div class="container">
+    <span>盒子6</span>
+    <div class="fixed green-border">
+        6:fixed不指定偏移
+    </div>
+</div>
+<div class="container">
+    <span>盒子7</span>
+    <div class="relative green-border">
+        7:relative不指定偏移
+    </div>
+</div>
+</body>
+</html>

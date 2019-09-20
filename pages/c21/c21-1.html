@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21.1 定位内容</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+
+</head>
+<body>
+<div class="title">21.1 定位内容</div>
+<div class="x">1.设置定位类型</div>
+<p>使用position属性规定元素的定位类型。其值有static,relative,absolute,fixed。这几个值含义见下表：</p>
+<table>
+    <tr>
+        <th>值</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>absolute</td>
+        <td><div>生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。</div>
+            <div>元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。</div></td>
+    </tr>
+    <tr>
+        <td>fixed</td>
+        <td>
+            <div>生成绝对定位的元素，相对于浏览器窗口进行定位。</div>
+            <div>元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。</div>
+        </td>
+    </tr>
+    <tr>
+        <td>relative</td>
+        <td>
+            <div>生成相对定位的元素，相对于其正常位置进行定位。</div>
+            <div>因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。</div>
+        </td>
+    </tr>
+    <tr>
+        <td>static</td>
+        <td>默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。</td>
+    </tr>
+    <tr>
+        <td>inherit</td>
+        <td>规定应该从父元素继承 position 属性的值。</td>
+    </tr>
+</table>
+<p>W3school言：这个属性定义建立元素布局所用的定位机制。任何元素都可以定位，不过绝对或固定元素会生成一个块级框，而不论该元素本身是什么类型。相对定位元素会相对于它在正常流中的默认位置偏移(和浮动盒是否类似呢)。</p>
+<p>因为position的几个值会让元素跑到基于页面的某个位置，使得本页面比较混乱，所以例子点<a href="c21-1-1.html" target="_blank">这里</a>查看效果,代码如下：</p>
+<xmp>
+    <style>
+        .container{
+            border:red 1px solid;
+            width:35%;
+            padding: 2px;
+            margin: 80px 3px;
+        }
+        .green-border{
+            border: green solid 1px;
+        }
+        .height80{
+            height: 80px;
+        }
+        .absolute{
+            position:absolute;
+        }
+        .static{
+            position: static;
+        }
+        .relative{
+            position: relative;
+        }
+        .fixed{
+            position: fixed;
+        }
+        .left100{
+            left: 100px;
+        }
+        .left400{
+            left:400px;
+        }
+        .left600{
+            left:600px;
+        }
+        .right200{
+            right: 200px;
+        }
+
+        .top100{
+            top:100px;
+        }
+        .top200{
+            top:200px;
+        }
+    </style>
+    <div style="height:500px;" class="green-border">500px高的空白区</div>
+    <div class="container">
+        <span>盒子1</span>
+        <div class="absolute left600 right200 top200 green-border">
+            1:absolute left600 right200 top200
+        </div>
+    </div>
+    <div class="container">
+        <span>盒子2</span>
+        <div class="fixed left600 right200 top100 green-border">
+            2:fixed left600 right200 top100
+        </div>
+    </div>
+    <div class="container">
+        <span>盒子3</span>
+        <div class="relative right200 left400 top200 green-border height80">
+            3:relative right200 left400 top200
+        </div>
+    </div>
+    <div class="container">
+        <span>盒子4</span>
+        <div class="static left100 right200 top200 green-border">
+            4:static left100 right200 top200
+        </div>
+    </div>
+    <div class="container">
+        <span>盒子5</span>
+        <div class="absolute green-border">
+            5:absolute不指定偏移
+        </div>
+    </div>
+    <div class="container">
+        <span>盒子6</span>
+        <div class="fixed green-border">
+            6:fixed不指定偏移
+        </div>
+    </div>
+    <div class="container">
+        <span>盒子7</span>
+        <div class="relative green-border">
+            7:relative不指定偏移
+        </div>
+    </div>
+</xmp>
+<p>先解释一下left,right,top,bottom。它们表示，我(元素)的某条边(上下左右)与包含我的包含块(有时候并不是包含块，
+    比如当position=absolute时，这时候表示与body的某条边的距离，fixed时为可见的视窗的某条边)对应的那条边的距离。</p>
+<p>如果 "position" 属性的值为 "static"，那么设置的left,right,top,bottom属性不会产生任何效果。</p>
+<p>从例子中的第三个盒子看，relative定位时，包含块中仍留下了一个空白块。</p>
+<p>如果同时写left和right会怎样？经测试:</p>
+<p>1:当position=relative,无论书写顺序怎样，只有left会生效;</p>
+<p>2:当position=fixed或absolute时,left，right都生效。</p>
+<p>3:当position=static时，什么都不会生效。</p>
+<p>另外，总结一些心得：</p>
+<p>1.fixed和absolute除了相对元素不一样，总体说来它们的表现是很类似的（不指定偏移量的话它们处理还是不一样的，见上面例子的盒子5和6）；</p>
+<p>2.relative表现和其它不一样。我们可以把它的包含块看做一个爱护自己"好妈妈"，它的妈妈给它留了空白块，然后它的妈妈"天真"的认为它应该包含在它之内，只允许做少量的偏移，
+    所以只让它定义左或右(同时定义只有左生效，上或下应该也类似，未验证)的偏移量。但有个性的儿子怎么会听妈妈的话一辈子不出门，它用比较大的偏移量离开了妈妈的怀抱。但是妈妈定的规矩还是影响了它，
+它不能同时定义left和right,所以它的宽度和它的妈妈很相关。</p>
+<p>当position=absolute或fixed，并且指定的左偏移让左侧边超过了右侧边会怎么样？我们仍然看<a href="c21-1-1.html" target="_blank">这里</a>，缩放浏览器，看盒子2里包含的fixed的表现：</p>
+<p>我们看到，盒子2努力在保持left和right偏移的值，我们不断缩小浏览器的时候，盒子2里的fixed盒子宽度不断缩小。当盒子缩小到仅剩一条线的时候，表示left值+right值已经等于容纳它的盒子(body)宽度，再缩小的话
+如果要保持left和right的话，盒子就要左右换边了。这是不容许的，所以继续缩小的时候它会一直保持一条线，并且固定在left的位置(拖动横向滚动条还能看见它，可见left还是有优先的)。
+    这时盒子里容不下任何内容了，内容被挤出去了。absolute的表现也是一样的。</p>
+
+
+
+<div class="x">2.设置元素的层叠顺序</div>
+<p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。</p>
+<p>Z-index 仅能在定位元素上奏效，即元素必须有position。</p>
+<p>常常图片是不透明的，拥有大的z-index值会让它覆盖文字。而文字通常是透明的，把它放上面可以看到下面的图片。</p>
+<p class="important">为什么例子中的bottom会设置-1810px这么大的负数，不应该是0吗？考虑图片高度也应该是-300px左右啊？我本来也是这样做的，但是发现图片到了本页面的中间位置，调整到这个数字才到了底部。
+    后来经过进一步研究发现，是我使用的xmp元素导致了这个问题。xmp元素实际占据了文档的空间，但浏览器计算高度的时候却没把它算进去。各位小伙伴可以验证一下。</p>
+<xmp>
+    <div style="position: absolute;bottom:10px;left:40px;z-index: 1;">
+        能看到我吗？
+    </div>
+    <div style="position: absolute;bottom:10px;left:90px;z-index: 2;">
+        Can you see me？
+    </div>
+    <div style="position: absolute;bottom:10px;left:40px;width:400px;height:300px;z-index: 3;">
+        <img src="../../assets/img/011.jpg" style="width: 100%;height: 100%"/>
+    </div>
+</xmp>
+
+    <div style="position:absolute;bottom:-1810px;left:40px;z-index: 1;">
+        能看到我吗？
+    </div>
+    <div style="position: absolute;bottom:-1810px;left:90px;z-index: 2;">
+        Can you see me？
+    </div>
+    <img src="../../assets/img/011.jpg" style="position: absolute;bottom:-1810px;left:40px;width:400px;height:300px;z-index: 0;"/>
+
+</body>
+</html>
