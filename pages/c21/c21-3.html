@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21.3 创建弹性盒布局</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+    <body>
+    <div class="x">21.3 创建弹性盒布局</div>
+    <p>参考<a href="../c16/c16-4.html#flexbox">这里</a>。</p>
+    <p><i>弹性和布局</i>(也称伸缩盒，W3C称为可伸缩框)实为display属性值为box(目前需要带厂商前缀)时的表现。目前标准仍处于变化之中，所以过于暂不深入。但是因为它确实很重要，必须起码有个大致了解。</p>
+    <p>注意display有个属性值是flex（也需要厂商前缀）,它并不表示弹性盒子。我曾笔误(IDE误导)写成display:flex，导致很多设置失效。不过这个笔误使我刚好了解了一下flex的表现，它似乎是一个等宽的box。</p>
+    <p>w3c的<a target="_blank" href="https://www.w3school.com.cn/tiy/t.asp?f=css3_box-pack"> 这个 </a>例子,使用display:box;box-pack:center;box-align:center;实现了元素内的内容居中。</p>
+    <p>W3C上并没有书上介绍的几个属性：flex-align,flex-direction,flex-order,flex-pack。</p>
+    <div class="x-x">1.创建简单的弹性盒</div>
+    <p>1:创建一个display:box，此时，子元素都会放在一排显示且具有弹性，表示会随浏览器的伸缩而改变大小;</p>
+    <p>2:将包含块中的一个或多个元素指定box-flex(目前必须带上厂商前缀)的值，这个值是一个相对值，即相对于其它box-flex值相比，类似于z-index。</p>
+<xmp>
+    <div style="display: -webkit-box;display: -moz-box;border:1px solid black;padding:2px;">
+        <div style="width: 250px;border:1px solid red;padding:2px;">
+            香
+        </div>
+        <div style="-moz-box-flex: 1;-webkit-box-flex: 1;border:1px solid red;padding:2px;">
+            港
+        </div>
+        <div style="width: 25%;border:1px solid red;padding:2px;">
+            加
+        </div>
+        <div style="-moz-box-flex: 3;-webkit-box-flex: 3;border:1px solid red;padding:2px;">
+            油
+        </div>
+    </div>
+</xmp>
+    <div style="display: -webkit-box;display: -moz-box;border:1px solid black;padding:2px;">
+        <div style="width: 250px;border:1px solid red;padding:2px;">
+            香
+        </div>
+        <div style="-moz-box-flex: 1;-webkit-box-flex: 1;border:1px solid red;padding:2px;">
+            港
+        </div>
+        <div style="width: 25%;border:1px solid red;padding:2px;">
+            加
+        </div>
+        <div style="-moz-box-flex: 3;-webkit-box-flex: 3;border:1px solid red;padding:2px;">
+            油
+        </div>
+    </div>
+
+    <div class="x-x">2.伸缩多个元素</div>
+
+    <p>其实上面的例子已经是伸缩多个元素的例子了。box-flex: 3应该是box-flex: 1的盒子的三倍宽。</p>
+
+    <div class="x-x">3.处理垂直内容</div>
+
+    <p>作者定义：box-align表示如何处理多余的垂直空间。我认为定义不确切，使用W3C的定义：box-align规定如何（垂直）对齐框的子元素。值有start,end,center,strech。</p>
+
+    <p>使用注意：它是定义在包含块中的，即和display写在同一个选择器中。这保证了每一个子元素表现一致。</p>
+    <xmp>
+        <div style="display: -webkit-box;display: -moz-box;border:1px solid black;padding:2px;-moz-box-align: center;-webkit-box-align: center;">
+            <div style="width: 250px;border:1px solid red;padding:2px;">
+                <div>香</div>
+                <div>香</div>
+                <div>香</div>
+                <div>香</div>
+            </div>
+            <div style="-moz-box-flex: 1;-webkit-box-flex: 1;border:1px solid red;padding:2px;">
+                港
+            </div>
+            <div style="width: 25%;border:1px solid red;padding:2px;">
+                加
+            </div>
+            <div style="-moz-box-flex: 3;-webkit-box-flex: 3;border:1px solid red;padding:2px;">
+                油
+            </div>
+        </div>
+    </xmp>
+    <div style="display: -webkit-box;display: -moz-box;border:1px solid black;padding:2px;-moz-box-align: center;-webkit-box-align: center;">
+        <div style="width: 250px;border:1px solid red;padding:2px;">
+            <div>香</div>
+            <div>香</div>
+            <div>香</div>
+            <div>香</div>
+        </div>
+        <div style="-moz-box-flex: 1;-webkit-box-flex: 1;border:1px solid red;padding:2px;">
+            港
+        </div>
+        <div style="width: 25%;border:1px solid red;padding:2px;">
+            加
+        </div>
+        <div style="-moz-box-flex: 3;-webkit-box-flex: 3;border:1px solid red;padding:2px;">
+           油
+        </div>
+    </div>
+    <p>大家可以修改这个值看看不同的表现。</p>
+    <div class="x-x">4.处理最大尺寸</div>
+    <xmp>
+        <div style="display:-moz-box;display:-webkit-box;-moz-box-pack:start;-webkit-box-pack: start; border:1px solid black;padding:2px;margin:10px;">
+            <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+            <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+            <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+        </div>
+
+        <div style="display:-moz-box;display:-webkit-box;-moz-box-pack:end;-webkit-box-pack: end; border:1px solid black;padding:2px;margin:10px;">
+            <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+            <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+            <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+        </div>
+
+        <div style=";display:-moz-box;display:-webkit-box;-moz-box-pack:center;-webkit-box-pack: center; border:1px solid black;padding:2px;margin:10px;">
+            <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+            <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+            <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+        </div>
+        <div style="display:-moz-box;display:-webkit-box;-moz-box-pack:justify;-webkit-box-pack: justify; border:1px solid black;padding:2px;margin:10px;">
+            <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+            <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+            <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+        </div>
+    </xmp>
+    <div style="display:-moz-box;display:-webkit-box;-moz-box-pack:start;-webkit-box-pack: start; border:1px solid black;padding:2px;margin:10px;">
+        <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+        <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+        <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+    </div>
+
+    <div style="display:-moz-box;display:-webkit-box;-moz-box-pack:end;-webkit-box-pack: end; border:1px solid black;padding:2px;margin:10px;">
+        <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+        <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+        <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+    </div>
+
+    <div style="display:-moz-box;display:-webkit-box;-moz-box-pack:center;-webkit-box-pack: center; border:1px solid black;padding:2px;margin:10px;">
+        <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+        <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+        <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+    </div>
+    <div style="display:-moz-box;display:-webkit-box;-moz-box-pack:justify;-webkit-box-pack: justify; border:1px solid black;padding:2px;margin:10px;">
+        <div style="width:100px;border:1px solid red;margin:1px;">many </div>
+        <div style="border:1px solid darkgreen;margin:1px;">words  </div>
+        <div style="border:1px solid blue;margin:1px;">to to to to to to to to to to to to to to to to to to to to to </div>
+    </div>
+
+    </body>
+</html>

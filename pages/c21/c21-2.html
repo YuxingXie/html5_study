@@ -2,11 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>21.2 设置元素的层叠顺序</title>
+    <title>21.2 创建多列布局</title>
     <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
-<body>
+    <body>
+    <div class="x">21.2 创建多列布局</div>
+    <p>参考<a href="../c16/c16-4.html#multicolumn">这里</a>。</p>
+    <p>column-count属性值是一个自然数(0，小数，负数语法可能没错，但不会生效)，表示将元素内容显示为多少列。</p>
+    <p>column-rule设置列之间的样式、颜色、宽度，类似于border属性。</p>
+    <p>column-fill指定内容在列与列之间的分布方式，值有balance和auto。w3c:主流浏览器都不支持 column-fill 属性。</p>
+    <p>本小节不深入研究了。</p>
+    <xmp>
+        <div style="column-count: 3;column-fill: auto;">
+            Speaking to reporters, the president defended his July phone call with President Volodymyr Zelensky of Ukraine as entirely appropriate,
+            and stopped short of directly confirming news reports about what was discussed. But he acknowledged that he had discussed
+            Mr. Biden during the call and accused the former vice president of corruption tied to his son Hunter’s business activities in the former Soviet republic.
 
+            “The conversation I had was largely congratulatory, with largely corruption, all of the corruption taking place and
+            largely the fact that we don’t want our people like Vice President Biden and his son creating to the corruption already in the Ukraine,
+            ” Mr. Trump told reporters before leaving for a trip to Texas and Ohio.
 
-</body>
+            It is still far from clear that the latest scandal surrounding Mr. Trump’s conduct will lead Ms. Pelosi or other top
+            Democrats to bless following through with full impeachment proceedings and a vote. The House Judiciary Committee is already investigating whether to recommend articles of
+            impeachment against Mr. Trump over other matters, but Ms. Pelosi has consistently questioned the strength of the case.
+
+            Proponents of impeachment have repeatedly pointed to damaging revelations — including several instances of possible obstruction of justice by
+            Mr. Trump detailed by the special counsel investigating Russia’s interference with the 2016 election — that they believe warrant seeking
+            Mr. Trump’s removal. But they have run into resistance or indifference from their colleagues and the general public. And given near-unanimous Republican opposition,
+            any impeachment proceeding would likely be a wholly partisan exercise that would all but certainly result in an acquittal by the Senate.
+        </div>
+        <hr/>
+        <div style="column-count: 5;column-fill: balance;column-rule: 2px solid black;">
+            Speaking to reporters, the president defended his July phone call with President Volodymyr Zelensky of Ukraine as entirely appropriate,
+            and stopped short of directly confirming news reports about what was discussed. But he acknowledged that he had discussed
+            Mr. Biden during the call and accused the former vice president of corruption tied to his son Hunter’s business activities in the former Soviet republic.
+
+            “The conversation I had was largely congratulatory, with largely corruption, all of the corruption taking place and
+            largely the fact that we don’t want our people like Vice President Biden and his son creating to the corruption already in the Ukraine,
+            ” Mr. Trump told reporters before leaving for a trip to Texas and Ohio.
+
+            It is still far from clear that the latest scandal surrounding Mr. Trump’s conduct will lead Ms. Pelosi or other top
+            Democrats to bless following through with full impeachment proceedings and a vote. The House Judiciary Committee is already investigating whether to recommend articles of
+            impeachment against Mr. Trump over other matters, but Ms. Pelosi has consistently questioned the strength of the case.
+
+            Proponents of impeachment have repeatedly pointed to damaging revelations — including several instances of possible obstruction of justice by
+            Mr. Trump detailed by the special counsel investigating Russia’s interference with the 2016 election — that they believe warrant seeking
+            Mr. Trump’s removal. But they have run into resistance or indifference from their colleagues and the general public. And given near-unanimous Republican opposition,
+            any impeachment proceeding would likely be a wholly partisan exercise that would all but certainly result in an acquittal by the Senate.
+        </div>
+    </xmp>
+    <div style="column-count: 3;column-fill: auto;">
+        Speaking to reporters, the president defended his July phone call with President Volodymyr Zelensky of Ukraine as entirely appropriate,
+        and stopped short of directly confirming news reports about what was discussed. But he acknowledged that he had discussed
+        Mr. Biden during the call and accused the former vice president of corruption tied to his son Hunter’s business activities in the former Soviet republic.
+
+        “The conversation I had was largely congratulatory, with largely corruption, all of the corruption taking place and
+        largely the fact that we don’t want our people like Vice President Biden and his son creating to the corruption already in the Ukraine,
+        ” Mr. Trump told reporters before leaving for a trip to Texas and Ohio.
+
+        It is still far from clear that the latest scandal surrounding Mr. Trump’s conduct will lead Ms. Pelosi or other top
+        Democrats to bless following through with full impeachment proceedings and a vote. The House Judiciary Committee is already investigating whether to recommend articles of
+        impeachment against Mr. Trump over other matters, but Ms. Pelosi has consistently questioned the strength of the case.
+
+        Proponents of impeachment have repeatedly pointed to damaging revelations — including several instances of possible obstruction of justice by
+        Mr. Trump detailed by the special counsel investigating Russia’s interference with the 2016 election — that they believe warrant seeking
+        Mr. Trump’s removal. But they have run into resistance or indifference from their colleagues and the general public. And given near-unanimous Republican opposition,
+        any impeachment proceeding would likely be a wholly partisan exercise that would all but certainly result in an acquittal by the Senate.
+    </div>
+    <hr/>
+    <div style="column-count: 5;column-fill: balance;column-rule: 2px solid black;">
+        Speaking to reporters, the president defended his July phone call with President Volodymyr Zelensky of Ukraine as entirely appropriate,
+        and stopped short of directly confirming news reports about what was discussed. But he acknowledged that he had discussed
+        Mr. Biden during the call and accused the former vice president of corruption tied to his son Hunter’s business activities in the former Soviet republic.
+
+        “The conversation I had was largely congratulatory, with largely corruption, all of the corruption taking place and
+        largely the fact that we don’t want our people like Vice President Biden and his son creating to the corruption already in the Ukraine,
+        ” Mr. Trump told reporters before leaving for a trip to Texas and Ohio.
+
+        It is still far from clear that the latest scandal surrounding Mr. Trump’s conduct will lead Ms. Pelosi or other top
+        Democrats to bless following through with full impeachment proceedings and a vote. The House Judiciary Committee is already investigating whether to recommend articles of
+        impeachment against Mr. Trump over other matters, but Ms. Pelosi has consistently questioned the strength of the case.
+
+        Proponents of impeachment have repeatedly pointed to damaging revelations — including several instances of possible obstruction of justice by
+        Mr. Trump detailed by the special counsel investigating Russia’s interference with the 2016 election — that they believe warrant seeking
+        Mr. Trump’s removal. But they have run into resistance or indifference from their colleagues and the general public. And given near-unanimous Republican opposition,
+        any impeachment proceeding would likely be a wholly partisan exercise that would all but certainly result in an acquittal by the Senate.
+    </div>
+    </body>
 </html>

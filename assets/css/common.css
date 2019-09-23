@@ -75,6 +75,7 @@ li{
     color: #0a169c;
 }
 xmp,code{
+    display: block;
     margin-left: 30px;
     padding: 10px 30px;
     color: #7a7a7a;
