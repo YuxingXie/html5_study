@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23.1 使用过渡</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+
+</head>
+<body>
+<div class="title">23.1 使用过渡</div>
+<div class="x">1.设置定位类型</div>
+<p>参考<a href="../c16/c16-4.html#transition">这里</a>。</p>
+<p>先说说何谓过渡。当一个元素的样式从一个样式换成另一个样式的时候，就存在过渡。比如某个div的background-color从红变为蓝，就是一种过渡。通常这种过渡可能会触发了javascript函数，
+    或者某种<a href="../c18/c18-2.html">UI伪类选择器</a>或<a href="../c18/c18-3.html">动态伪类选择器</a>的时候，也会存在过渡。比如某个元素的:hover伪类选择器会应用另外一个样式，就存在过渡。</p>
+<p>理解了过渡，下面这几个跟过渡相关的属性就很好理解了:</p>
+
+<div class="table w90 ml30">
+    <div class="table-header-group">
+        <div class="table-cell">属性</div>
+        <div class="table-cell">说明</div>
+        <div class="table-cell">值</div>
+    </div>
+    <div class="table-row-group">
+        <div class="table-row">
+            <div class="table-cell">transition</div>
+            <div class="table-cell">简写属性，用于在一个属性中设置四个过渡属性</div>
+            <div class="table-cell">见后代码</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">transition-property</div>
+            <div class="table-cell">规定应用过渡的 CSS 属性的名称</div>
+            <div class="table-cell">见后代码</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">transition-duration</div>
+            <div class="table-cell">定义过渡效果花费的时间</div>
+            <div class="table-cell">见后代码</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">transition-timing-function</div>
+            <div class="table-cell">规定过渡效果的时间曲线</div>
+            <div class="table-cell">见后代码</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">transition-delay</div>
+            <div class="table-cell">规定过渡效果何时开始</div>
+            <div class="table-cell">见后代码</div>
+        </div>
+    </div>
+</div>
+<p>在自己写一段过渡的代码之前先想一想，这些过渡的属性是写在过渡之前的样式上，还是写在过渡之后的样式上？</p>
+<xmp>
+    <style>
+        .before{
+            width:200px;
+            height: 100px;
+            background:green;
+
+            transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -webkit-transition-delay: 100ms;
+            transition-duration: 1200ms;
+            -moz-transition-duration: 1200ms;
+            -webkit-transition-duration: 1200ms;
+        }
+        .before:hover{
+            width: 400px;
+            height: 100px;
+            background:red;
+        }
+    </style>
+    <div class="before ml30"></div>
+</xmp>
+<style>
+    .before{
+        width:200px;
+        height: 100px;
+        background:green;
+
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 1200ms;
+        -moz-transition-duration: 1200ms;
+        -webkit-transition-duration: 1200ms;
+    }
+    .before:hover{
+        width: 400px;
+        height: 100px;
+        background:red;
+    }
+</style>
+<div class="before ml30"></div>
+<p>使用transition属性时，请使用厂商前缀。</p>
+<p>这种过渡是很平滑的，包括颜色的变化也不是突变的。transition相关属性写在.before和.before:hover上确实不一样，写在.before上，鼠标略过和离开时都有平滑过渡，但写在.before:hover上则鼠标离开时没有过渡，是一种突变。
+作者的例子就是写在:hover上。</p>
+<div class="x-x">1.创建反向过渡</div>
+<p>前面说过，作者把transition相关属性写在:hover上，鼠标移开时会图片没有过渡。当然我写在.before上是可以让鼠标略过和离开都有过渡。但要让略过和离开有不同的过渡效果，则需要在两个地方写不同的过渡属性。</p>
+</body>
+</html>

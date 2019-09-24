@@ -8,10 +8,36 @@
 <body>
 <div class="x">22.4 使用字体</div>
 <div class="x-x">5.使用Web字体</div>
+<xmp>
+    <style>
+        @font-face {
+            font-family:'giveAName';
+            font-style: normal;
+            font-weight: normal;
+            src: url('http://titan/listings/MyFont.woff');
+        }
+        .aFont{
+            font-family: giveAName,cursive;
+        }
+    </style>
+    <div class="aFont">
+        take me to your heart,take me to your soul!
+    </div>
+</xmp>
 <style>
     @font-face {
-
+        font-family:'giveAName';
+        font-style: normal;
+        font-weight: normal;
+        src: url('http://titan/listings/MyFont.woff');
+    }
+    .aFont{
+        font-family: giveAName,cursive;
     }
 </style>
+<div class="aFont">
+    take me to your heart,take me to your soul!
+</div>
+<p>仅展示用法，字体并未生效，可能还需要配置服务器。</p>
 </body>
 </html>
