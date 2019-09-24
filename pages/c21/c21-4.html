@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21.4 创建表格布局</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="x">21.4 创建表格布局</div>
+<p>使用display:table及一系列类似于table元素的一些子元素的值，可以让元素布局看起来是一个表格(table)。</p>
+<p>和直接使用table元素相比，使用表格布局更符合语义化。</p>
+<p>这些值的解释如下（现学现用，我不再使用table元素创建表格）：</p>
+
+<div class="table w90 ml30">
+    <div class="table-header-group text-center">
+        <div class="table-row">
+            <div class="table-cell">值</div>
+            <div class="table-cell">说明</div>
+        </div>
+    </div>
+    <div class="table-row-group">
+        <div class="table-row">
+            <div class="table-cell">table</div>
+            <div class="table-cell">此元素会作为块级表格来显示（类似 &lt;table&gt;），表格前后带有换行符。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">inline-table</div>
+            <div class="table-cell">此元素会作为内联表格来显示（类似 &lt;table&gt;），表格前后没有换行符。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">table-row-group</div>
+            <div class="table-cell">此元素会作为一个或多个行的分组来显示（类似 &lt;tbody&gt;）。</div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell">table-header-group</div>
+            <div class="table-cell">此元素会作为一个或多个行的分组来显示（类似 &lt;thead&gt;）。</div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell">table-footer-group</div>
+            <div class="table-cell">此元素会作为一个或多个行的分组来显示（类似 &lt;tfoot&gt;）。</div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell">table-row</div>
+            <div class="table-cell"> 此元素会作为一个表格行显示（类似 &lt;tr&gt;）。</div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell">table-column-group</div>
+            <div class="table-cell">此元素会作为一个或多个列的分组来显示（类似 &lt;colgroup&gt;）。</div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell">table-column</div>
+            <div class="table-cell">此元素会作为一个单元格列显示（类似 &lt;col&gt;）</div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell">table-cell</div>
+            <div class="table-cell">此元素会作为一个表格单元格显示（类似 &lt;td&gt; 和 &lt;th&gt;）</div>
+        </div>
+
+        <div class="table-row">
+            <div class="table-cell">table-caption</div>
+            <div class="table-cell"> 此元素会作为一个表格标题显示（类似 &lt;caption&gt;）</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
