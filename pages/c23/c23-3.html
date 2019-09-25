@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23.3 使用变换</title>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
+</head>
+<body>
+<div class="title">23.3 使用变换</div>
+<p>参考<a href="../c16/c16-4.html#transform">这里</a>。</p>
+
+<p>使用CSS变换可以让元素旋转、缩放、倾斜和平移。</p>
+
+<DIV CLASS="x">1.应用变换</DIV>
+<p>通过transform属性为元素应用变换。</p>
+<p>transform属性具有非常多的值：</p>
+<div class="table ml30 w90">
+    <div class="table-header-group">
+        <div class="table-row">
+            <div class="table-cell">值</div>
+            <div class="table-cell">描述</div>
+        </div>
+    </div>
+    <div class="table-row-group">
+        <div class="table-row">
+            <div class="table-cell">none</div>
+            <div class="table-cell">定义不进行转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">matrix(n,n,n,n,n,n)</div>
+            <div class="table-cell">定义 2D 转换，使用六个值的矩阵。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)</div>
+            <div class="table-cell">定义 3D 转换，使用 16 个值的 4x4 矩阵。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">translate(x,y)</div>
+            <div class="table-cell">定义 2D 转换</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">ranslate3d(x,y,z)</div>
+            <div class="table-cell">定义 3D 转换</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">translateX(x)</div>
+            <div class="table-cell">定义转换，只是用 X 轴的值</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">translateY(y)</div>
+            <div class="table-cell">定义转换，只是用 Y 轴的值</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">translateZ(z)</div>
+            <div class="table-cell">定义 3D 转换，只是用 Z 轴的值。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">scale(x,y)</div>
+            <div class="table-cell">定义 2D 缩放转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">scale3d(x,y,z)</div>
+            <div class="table-cell">定义 3D 缩放转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">scaleX(x)</div>
+            <div class="table-cell">通过设置 X 轴的值来定义缩放转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">scaleY(y)</div>
+            <div class="table-cell">通过设置 Y 轴的值来定义缩放转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">scaleZ(z)</div>
+            <div class="table-cell">通过设置 Z 轴的值来定义 3D 缩放转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">rotate(angle)</div>
+            <div class="table-cell">定义 2D 旋转，在参数中规定角度。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">rotate3d(x,y,z,angle)</div>
+            <div class="table-cell">定义 3D 旋转。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">rotateX(angle)</div>
+            <div class="table-cell">定义沿着 X 轴的 3D 旋转。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">rotateY(angle)</div>
+            <div class="table-cell">定义沿着 Y 轴的 3D 旋转。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">rotateZ(angle)</div>
+            <div class="table-cell">定义沿着 Z 轴的 3D 旋转。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">skew(x-angle,y-angle)</div>
+            <div class="table-cell">定义沿着 X 和 Y 轴的 2D 倾斜转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">skewX(angle)</div>
+            <div class="table-cell">定义沿着 X 轴的 2D 倾斜转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">skewY(angle)</div>
+            <div class="table-cell">定义沿着 Y 轴的 2D 倾斜转换。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">perspective(n)</div>
+            <div class="table-cell">为 3D 转换元素定义透视视图。</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

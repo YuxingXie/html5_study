@@ -120,6 +120,8 @@ dfn{
 .table-header-group {
     display: table-header-group;
     font-weight: bolder;
+    background-color: black;
+    color: white;
 }
 .table-row {
     display: table-row;

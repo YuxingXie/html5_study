@@ -75,6 +75,169 @@
         }
     }
 </style>
-<div class="origin">origin</div>
+<div class="origin ml30">origin</div>
+<div class="x">1.使用关键帧</div>
+<p>@keyframes叫做<i>关键帧</i>。上面的例子里关键帧里设置了一个"to"，表示动画最终定个的样式。它还有很多的设置。</p>
+<div class="x-x">1.1.设置初始值</div>
+<p>在关键帧中用from可以定义初始状态。这和过渡(transition)完全不一样了，过渡的初始状态就是元素的初始样子，但动画可以让这个变化过程从一开始就可以自己定义。</p>
+<div class="x-x">1.2.指定中间关键帧</div>
+<p>使用一个百分比值可以定义一个中间值(那么from是否和0%,to和100%一样呢？答案是肯定的)。</p>
+<p>我们应该见过一种类似bounce的动画，文字蹦蹦跳跳的出来的那种，我想有了这个中间值，理论上就可以实现了。</p>
+<div class="x">2.设置重复方向</div>
+<p>首先，设置重复方向的前提是动画要重复播放。前面的例子并没有重复播放。</p>
+<p>指定animation-iteration-count属性的值会让动画重复播放。我们再使用animation-direction:alternate可以让动画反向播放。</p>
+<div class="x">3.理解结束状态</div>
+<p>在过渡的那一节，我们将鼠标悬停在元素上，元素的样式一直保持那个样子。然而动画则不一样，当动画结束后，它有回到了起始状态。CSS动画只是驱动新样式的应用，并没有让自身出现任何持久变化。</p>
+<p>但是，我们千万不可相信作者的这句话："如果你想让元素的外观保留动画结束时的状态，必须使用本章前面介绍的过渡"，这是因为作者并不知道(或者写书的时候还没有)animation-fill-mode属性。</p>
+<p>animation-fill-mode 属性规定动画在播放之前或之后，其动画效果是否可见。其值如下：</p>
+<div class="table w90 ml30">
+    <div class="table-header-group">
+        <div class="table-row">
+            <div class="table-cell">值</div>
+            <div class="table-cell">描述</div>
+        </div>
+    </div>
+
+    <div class="table-row-group">
+            <div class="table-row">
+                <div class="table-cell">none</div>
+                <div class="table-cell">不改变默认行为。</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">forwards</div>
+                <div class="table-cell">当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">backwards</div>
+                <div class="table-cell">在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）。
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">both</div>
+                <div class="table-cell">向前和向后填充模式都被应用。</div>
+            </div>
+        </div>
+</div>
+<div class="x">4.初始布局时应用动画</div>
+<p>在学习过渡的时候，我们知道元素需要改变自己的样式，从一种样式过渡到另一个样式。它需要一个驱动力，比如鼠标悬停，按钮点击等，好让元素改变样式。</p>
+<p>动画则不同，它不需要任何驱动力，元素从初始呈现就应用动画，完成动画的过程。我们只需要在元素初始状态中定义动画即可：</p>
+<xmp>
+    <style>
+        .start-animation{
+            width:100px;
+            height: 100px;
+            color:white;
+            background-color: blue;
+            animation-delay: 3100ms;
+            -moz-animation-delay: 3100ms;
+            -webkit-animation-delay: 3100ms;
+            animation-duration: 1500ms;
+            -moz-animation-duration: 1500ms;
+            -webkit-animation-duration: 1500ms;
+            animation-name: bigger;
+            -webkit-animation-name: bigger;
+            -moz-animation-name: bigger;
+            animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+
+        }
+    </style>
+    <div class="start-animation">我一出来就带动画</div>
+</xmp>
+<style>
+    .start-animation{
+        width:100px;
+        height: 100px;
+        color:white;
+        background-color: blue;
+        animation-delay: 3100ms;
+        -moz-animation-delay: 3100ms;
+        -webkit-animation-delay: 3100ms;
+        animation-duration: 1500ms;
+        -moz-animation-duration: 1500ms;
+        -webkit-animation-duration: 1500ms;
+        animation-name: bigger;
+        -webkit-animation-name: bigger;
+        -moz-animation-name: bigger;
+        animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+
+    }
+</style>
+<div class="start-animation ml30">我一出来就带动画</div>
+<p>因为可能您的显示器不够大会出现滚动条，所以我把animation-delay设置得比较大，让您有时间拖动滚动条看到动画效果，如果您的动作很快，请稍微等等哦。然后我还定义了animation-fill-mode: forwards让动画定格在最后一帧。</p>
+
+<div class="x">5.重用关键帧</div>
+<p>上面的例子我重用了"bigger"这个关键帧，所以不需多说，容易了解。</p>
+<div class="x">6.为多个元素应用多个动画</div>
+<p>没什么好说的，知道animation-name可以有多个用逗号隔开的值就行了。</p>
+<div class="x">7.停止和启动动画</div>
+<p>animation-play-state属性规定动画正在运行还是暂停。running运行，paused暂停。这个值通常通过JavaScript来改变：</p>
+<xmp>
+    <style>
+        .stopped-animation{
+            width:100px;
+            height: 100px;
+            color:white;
+            background-color: greenyellow;
+            animation-delay: 100ms;
+            -moz-animation-delay: 100ms;
+            -webkit-animation-delay: 100ms;
+            animation-duration: 1500ms;
+            -moz-animation-duration: 1500ms;
+            -webkit-animation-duration: 1500ms;
+            animation-name: bigger;
+            -webkit-animation-name: bigger;
+            -moz-animation-name: bigger;
+            animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -webkit-animation-play-state: paused;
+        }
+    </style>
+    <script>
+        function startAnimation() {
+            document.getElementById('aId').style.animationPlayState='running';
+            document.getElementById('aId').style.webkitAnimationPlayState='running';
+        }
+    </script>
+    <div class="ml30 stopped-animation" id="aId"></div>
+    <input class="ml30" type="button" onclick="startAnimation()" value="开始动画"/>
+</xmp>
+<style>
+    .stopped-animation{
+        width:100px;
+        height: 100px;
+        color:white;
+        background-color: greenyellow;
+        animation-delay: 100ms;
+        -moz-animation-delay: 100ms;
+        -webkit-animation-delay: 100ms;
+        animation-duration: 1500ms;
+        -moz-animation-duration: 1500ms;
+        -webkit-animation-duration: 1500ms;
+        animation-name: bigger;
+        -webkit-animation-name: bigger;
+        -moz-animation-name: bigger;
+        animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -webkit-animation-play-state: paused;
+    }
+</style>
+<script>
+    function startAnimation() {
+        document.getElementById('aId').style.animationPlayState='running';
+        document.getElementById('aId').style.webkitAnimationPlayState='running';
+    }
+</script>
+<div class="ml30 stopped-animation" id="aId"></div>
+<input class="ml30" type="button" onclick="startAnimation()" value="开始动画"/>
 </body>
 </html>
