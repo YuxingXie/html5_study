@@ -96,5 +96,312 @@
 作者的例子就是写在:hover上。</p>
 <div class="x-x">1.创建反向过渡</div>
 <p>前面说过，作者把transition相关属性写在:hover上，鼠标移开时会图片没有过渡。当然我写在.before上是可以让鼠标略过和离开都有过渡。但要让略过和离开有不同的过渡效果，则需要在两个地方写不同的过渡属性。</p>
+<xmp>
+    <style>
+        .red-square{
+            width:400px;
+            height: 400px;
+            background:red;
+            transition-property: background-color;
+            transition-delay: 1000ms;
+            -moz-transition-delay: 1000ms;
+            -webkit-transition-delay: 1000ms;
+            transition-duration: 600ms;
+            -moz-transition-duration: 600ms;
+            -webkit-transition-duration: 600ms;
+
+        }
+        .red-square:hover{
+            width: 1000px;
+            height: 400px;
+            background:green;
+            transition-property: width,height;
+            transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -webkit-transition-delay: 100ms;
+            transition-duration: 1200ms;
+            -moz-transition-duration: 1200ms;
+            -webkit-transition-duration: 1200ms;
+        }
+    </style>
+</xmp>
+<style>
+    .red-square{
+        width:200px;
+        height: 200px;
+        background:red;
+        transition-property: background-color;
+        -moz-transition-property: background-color;
+        -webkit-transition-property: background-color;
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 600ms;
+        -moz-transition-duration: 600ms;
+        -webkit-transition-duration: 600ms;
+
+    }
+    .red-square:hover{
+        width: 1000px;
+        height: 200px;
+        background:green;
+        transition-property: width,height;
+        -moz-transition-property: width,height;
+        -webkit-transition-property: width,height;
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 1200ms;
+        -moz-transition-duration: 1200ms;
+        -webkit-transition-duration: 1200ms;
+    }
+</style>
+<div class="red-square ml30"></div>
+<p>上面的例子鼠标放上去之后会应用:hover中的过渡，这里用transition-property指定只有宽和高的变化才使用过渡。而鼠标移开后使用.red-square中的过渡，这里用transition-property: background-color指定只过渡背景色。</p>
+<p>transition-property我刚写的时候没有带厂商前缀，发现也能实现效果。可见它最少已被chrome支持。</p>
+<p>现在回到.before的那个例子。我的过渡属性都写在.before中，实现了过渡和反向过渡。我现在武断的认为(因为没有深入研究)，写在初始状态的过渡属性会实现过渡和反向过渡。</p>
+
+<div class="x-x">2.选择中间值的计算方式</div>
+<p>transition-timing-function属性有几个值：</p>
+
+<div class="table ml30">
+    <div class="table-header-group">
+        <div class="table-cell">值</div>
+        <div class="table-cell">说明</div>
+    </div>
+    <div class="table-row-group">
+        <div class="table-row">
+            <div class="table-cell">linear</div>
+            <div class="table-cell">规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">ease</div>
+            <div class="table-cell">规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">ease-in</div>
+            <div class="table-cell">规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">ease-out</div>
+            <div class="table-cell">规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">ease-in-out</div>
+            <div class="table-cell">规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">cubic-bezier(n,n,n,n)</div>
+            <div class="table-cell">在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。</div>
+        </div>
+    </div>
+</div>
+<p>我并不想去研究贝塞尔函数，看例子吧：</p>
+<xmp>
+    <style>
+        .linear{
+            width:200px;
+            height: 100px;
+            background:green;
+
+            transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -webkit-transition-delay: 100ms;
+            transition-duration: 3200ms;
+            -moz-transition-duration: 3200ms;
+            -webkit-transition-duration: 3200ms;
+            transition-timing-function: linear;
+            -moz-transition-timing-function: linear;
+            -webkit-transition-timing-function: linear;
+        }
+        .linear:hover{
+            width: 400px;
+            height: 100px;
+        }
+        .ease{
+            width:200px;
+            height: 100px;
+            background:green;
+
+            transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -webkit-transition-delay: 100ms;
+            transition-duration: 3200ms;
+            -moz-transition-duration: 3200ms;
+            -webkit-transition-duration: 3200ms;
+            transition-timing-function: ease;
+            -moz-transition-timing-function: ease;
+            -webkit-transition-timing-function: ease;
+        }
+        .ease:hover{
+            width: 400px;
+            height: 100px;
+        }
+        .ease-in{
+            width:200px;
+            height: 100px;
+            background:green;
+
+            transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -webkit-transition-delay: 100ms;
+            transition-duration: 3200ms;
+            -moz-transition-duration: 3200ms;
+            -webkit-transition-duration: 3200ms;
+            transition-timing-function: ease-in;
+            -moz-transition-timing-function: ease-in;
+            -webkit-transition-timing-function: ease-in;
+        }
+        .ease-in:hover{
+            width: 400px;
+            height: 100px;
+        }
+        .ease-out{
+            width:200px;
+            height: 100px;
+            background:green;
+
+            transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -webkit-transition-delay: 100ms;
+            transition-duration: 3200ms;
+            -moz-transition-duration: 3200ms;
+            -webkit-transition-duration: 3200ms;
+            transition-timing-function: ease-out;
+            -moz-transition-timing-function: ease-out;
+            -webkit-transition-timing-function: ease-out;
+        }
+        .ease-out:hover{
+            width: 400px;
+            height: 100px;
+        }
+        .ease-in-out{
+            width:200px;
+            height: 100px;
+            background:green;
+
+            transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -webkit-transition-delay: 100ms;
+            transition-duration: 3200ms;
+            -moz-transition-duration: 3200ms;
+            -webkit-transition-duration: 3200ms;
+            transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+        }
+        .ease-in-out:hover{
+            width: 400px;
+            height: 100px;
+        }
+    </style>
+    <div class="linear mb15">linear:匀速</div>
+    <div class="ease mb15">ease:相对于匀速，中间快，两头慢</div>
+    <div class="ease-in mb15">ease-in：相对于匀速，开始的时候慢，之后快</div>
+    <div class="ease-out mb15">ease-out：相对于匀速，开始时快，结束时候间慢</div>
+    <div class="ease-in-out mb15">ease-in-out：相对于匀速，（开始和结束都慢）两头慢</div></xmp>
+
+<style>
+    .linear{
+        width:200px;
+        height: 100px;
+        background:green;
+
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 3200ms;
+        -moz-transition-duration: 3200ms;
+        -webkit-transition-duration: 3200ms;
+        transition-timing-function: linear;
+        -moz-transition-timing-function: linear;
+        -webkit-transition-timing-function: linear;
+    }
+    .linear:hover{
+        width: 400px;
+        height: 100px;
+    }
+    .ease{
+        width:200px;
+        height: 100px;
+        background:green;
+
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 3200ms;
+        -moz-transition-duration: 3200ms;
+        -webkit-transition-duration: 3200ms;
+        transition-timing-function: ease;
+        -moz-transition-timing-function: ease;
+        -webkit-transition-timing-function: ease;
+    }
+    .ease:hover{
+        width: 400px;
+        height: 100px;
+    }
+    .ease-in{
+        width:200px;
+        height: 100px;
+        background:green;
+
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 3200ms;
+        -moz-transition-duration: 3200ms;
+        -webkit-transition-duration: 3200ms;
+        transition-timing-function: ease-in;
+        -moz-transition-timing-function: ease-in;
+        -webkit-transition-timing-function: ease-in;
+    }
+    .ease-in:hover{
+        width: 400px;
+        height: 100px;
+    }
+    .ease-out{
+        width:200px;
+        height: 100px;
+        background:green;
+
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 3200ms;
+        -moz-transition-duration: 3200ms;
+        -webkit-transition-duration: 3200ms;
+        transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        -webkit-transition-timing-function: ease-out;
+    }
+    .ease-out:hover{
+        width: 400px;
+        height: 100px;
+    }
+    .ease-in-out{
+        width:200px;
+        height: 100px;
+        background:green;
+
+        transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+        transition-duration: 3200ms;
+        -moz-transition-duration: 3200ms;
+        -webkit-transition-duration: 3200ms;
+        transition-timing-function: ease-in-out;
+        -moz-transition-timing-function: ease-in-out;
+        -webkit-transition-timing-function: ease-in-out;
+    }
+    .ease-in-out:hover{
+        width: 400px;
+        height: 100px;
+    }
+</style>
+<div class="linear mb15">linear:匀速</div>
+<div class="ease mb15">ease:相对于匀速，中间快，两头慢</div>
+<div class="ease-in mb15">ease-in：相对于匀速，开始的时候慢，之后快</div>
+<div class="ease-out mb15">ease-out：相对于匀速，开始时快，结束时候间慢</div>
+<div class="ease-in-out mb15">ease-in-out：相对于匀速，（开始和结束都慢）两头慢</div>
 </body>
 </html>
