@@ -8,4 +8,4 @@
 
 ### 问题列表
 
-1. display:table 如何实现table中类似于colspan='2'的效果？
+1. 如何用display:table 实现table中类似于colspan='2'的效果？
